@@ -15,6 +15,6 @@ do
  else
 	 action "$1 is ok" /bin/true
  fi
- sleep 2 
+ sleep 1
 
 done
