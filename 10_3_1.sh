@@ -11,4 +11,3 @@ do
 done
 
 [ "$sum" -ne 0 ] && printf "totalsum is : $sum\n"
-I am Kung
