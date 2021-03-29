@@ -1,7 +1,6 @@
 #!/bin/bash
-
 sum=0
-exec<$1
+
 while read line
 do
  size=`echo $line |awk '{print $10}'`
@@ -11,5 +10,5 @@ do
 	continue
  fi
  ((sum=sum+$size))
-done
+done<$1
 echo "Total: `echo $((${sum}))`"
