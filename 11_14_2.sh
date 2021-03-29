@@ -18,7 +18,7 @@ do
 
 
 done
-
+#subject: del user
 #del account
 # for n in student{01..05} 
 #do 
