@@ -16,3 +16,4 @@ if [ $McValues -eq 1 ]
 else
 	 echo "not ok"
 fi
+#author:kung

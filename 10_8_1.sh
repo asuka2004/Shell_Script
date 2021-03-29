@@ -12,3 +12,4 @@ do
  ((sum=sum+$size))
 done<$1
 echo "Total: `echo $((${sum}))`"
+#author:kung

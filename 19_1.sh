@@ -7,3 +7,4 @@ do
 	random=$(openssl rand -base64 40| sed 's#[^a-z]##g'|cut -c 1-10)
 	touch $Path/${random}_kung.html
 done
+#author:kung
