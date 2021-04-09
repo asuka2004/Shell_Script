@@ -15,3 +15,4 @@ do
  $MYDUMP $dbname| gzip >$DBPATH/${dbname}_$(date +%F).sql.gz
 done
 
+i am kung

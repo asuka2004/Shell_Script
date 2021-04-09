@@ -13,3 +13,4 @@ do
 done<$1
 echo "Total: `echo $((${sum}))`"
 #author:kung
+i am kung

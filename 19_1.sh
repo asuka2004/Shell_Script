@@ -8,3 +8,4 @@ do
 	touch $Path/${random}_kung.html
 done
 #author:kung
+i am kung
