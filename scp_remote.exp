@@ -1,0 +1,25 @@
+#!/usr/bin/expect
+#Author: Kung
+#Function: scp file to remote server
+
+if { $argc != 3 } {
+	puts "Usage:expect $argv0 file host dir"
+	exit
+}
+
+set file [lindex $argv 0]
+set host [lindex $argv 1]
+set dir [lindex $argv 2]
+spawn sudo su -l root
+spawn scp -rp $file kung@$host:$dir
+
+
+
+# need password to login
+#expect {
+#	"yes/no" {send "yes\r;exp_continue"}
+#	"*password" {send "Ndijn7p9\r"
+#}
+
+
+expect eof 

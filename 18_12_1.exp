@@ -1,0 +1,18 @@
+#!/usr/bin/expect
+#author:kung
+#function: test remote command
+if { $argc != 2 } {
+	put "Please input two expect $argv0 IP Command"
+
+}
+
+set ip [lindex $argv 0]
+set cmd [lindex $argv 1]
+set password "Ndijn7p9"
+
+spawn ssh kung@$ip $cmd
+expect {
+ "yes/no" {send "yes\r";exp_continue}
+ "*password" {send "$password\r"}
+}	
+expect eof

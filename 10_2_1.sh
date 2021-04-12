@@ -4,6 +4,3 @@ do
  uptime >>/root/homework/uptime.log
  usleep 200
 done
-kung
-#author:kung
-i am kung

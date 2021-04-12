@@ -1,0 +1,5 @@
+#!/usr/bin/expect
+spawn ssh kung@192.168.88.101 uptime 
+set timeout 5
+expect "yes/no" {exp_send "yes\r;exp_continue"}
+expect timeout  {puts "too late by kung";return}

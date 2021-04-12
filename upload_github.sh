@@ -1,6 +1,6 @@
 #!/bin/bash
-#author: Kung
-#Subject: auto git	
+#Author: Kung
+#Subject: Auto Git	
 	git add * 
 	git commit -m $(date +%m/%d-%H:%M)
 	git push -u origin main
