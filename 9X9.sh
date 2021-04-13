@@ -18,5 +18,5 @@ do
   done
 echo " "
 done
-#author:kung
-i am kung
+#author:
+ 

@@ -8,5 +8,5 @@ if [ $Freememory -lt 1500 ]
 	mail -s "`date +%F-%T` $Chars" root@localhost</root/message.txt
 
 fi
-#author:kung
-i am kung
+#:
+ 

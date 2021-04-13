@@ -1,5 +1,5 @@
 #!/bin/bash
-#author:kung
+#author:
 #subject: array
 array=(a b c d e f)
 for ((i=0;i<${#arr[*]};i++))

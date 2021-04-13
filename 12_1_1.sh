@@ -15,7 +15,7 @@ test(){
 	fi
 	echo $i	
  done
- echo "i am in func"
+ echo " in func"
 }
 test $*
-i am kung
+ 

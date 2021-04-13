@@ -5,7 +5,7 @@ Path=/root/test
 for n in `seq 10`
 do
 	random=$(openssl rand -base64 40| sed 's#[^a-z]##g'|cut -c 1-10)
-	touch $Path/${random}_kung.html
+	touch $Path/${random}_.html
 done
-#author:kung
-i am kung
+#author:
+ 

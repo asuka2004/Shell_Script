@@ -11,6 +11,6 @@ do
 done
 
 [ "$sum" -ne 0 ] && printf "totalsum is : $sum\n"
-kung
-#author:kung
-i am kung
+
+#author:
+ 

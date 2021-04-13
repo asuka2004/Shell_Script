@@ -6,7 +6,7 @@
 url_count=0
 url_list=(
 www.google.com
-www.kung.roc
+www..roc
 www.yahoo.com.tw
 )
 function url_check(){
