@@ -2,9 +2,9 @@
 # Author:   Kung
 # Function: monitor nginx
 
-if [ `netstat -ntulp|grep httpd|wc -l` -gt 0 ];then
+if [ `netstat -ntulp|grep nginx|wc -l` -gt 0 ];then
 	echo  "Web is running"  
 else
-	echo "web will reboot"
-	/usr/bin/systemctl restart httpd
+	echo "Web will reboot"
+	/usr/bin/systemctl restart nginx
 fi
