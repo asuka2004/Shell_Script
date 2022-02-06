@@ -2,7 +2,7 @@
 #Author:  Kung
 #Function:random file
 
-Path=/root/
+Path=/root
 
 [ -d $Path ]|| mkdir /root/github
 for n in `seq 5`

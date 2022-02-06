@@ -1,5 +1,5 @@
 #!/bin/bash
-
+#
 if [ `netstat -ntulp|grep 11211 |wc -l` -lt 1 ]
 	then
 		echo "memcache is error"
