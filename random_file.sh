@@ -1,7 +1,6 @@
 #!/bin/bash
 #Author:  Kung
 #Function:random file
-
 Path=/root
 
 [ -d $Path ]|| mkdir /root/github
