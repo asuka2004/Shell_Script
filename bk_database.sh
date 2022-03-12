@@ -1,17 +1,15 @@
 #!/bin/bash
-PATH=/usr/local/mysql/bin/mysql
-DBPATH=/root/test
+PATH=/usr/bin/mysql
+DBPATH=/root/tmp
 MYUSER=root
-MYPASS=
-SOCKET=/usr/local/mysql/mysql.sock
-MYCMD="mysql -u$MYUSER -p$MYPASS -S $SOCKET"
-MYDUMP="mysqldump -u$MYUSER -p$MYPASS -S $SOCKET"
+MYPASS=P@ssw0rd
+SOCKET=/var/lib/mysql/mysql.sock
+MYCMD="$PATH -u$MYUSER -p$MYPASS -S $SOCKET"
+MYDUMP="/usr/bin/mysqldump -u$MYUSER -p$MYPASS -S $SOCKET"
 
 [ ! -d "$DBPATH" ] && mkdir $DBPATH
 
-for dbname in `$MYCMD -e "show databases;"|sed '1,2d'`
-
+for dbname in `$MYCMD -e "show databases"| /usr/bin/grep db*` 
 do
- $MYDUMP $dbname| gzip >$DBPATH/${dbname}_$(date +%F).sql.gz
+ $MYDUMP $dbname| /usr/bin/gzip >$DBPATH/${dbname}.$(/usr/bin/date +%F).sql.gz
 done
-
