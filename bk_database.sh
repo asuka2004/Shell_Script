@@ -13,5 +13,9 @@ MYDUMP="mysqldump -u$MYUSER -p$MYPASS -S $SOCKET"
 
 for dbname in `$MYCMD -e "show databases"|sed '1,2d'|egrep -v "mysql|schema|performance_schema|sys|information_schema"` 
 do
- $MYDUMP $dbname|gzip >$DBPATH/${dbname}.$(date +%F).sql.gz
+ 	mkdir $DBPATH/${dbname}_$(date +%F) -p
+	for table in `$MYCMD -e "use $dbname;show tables from $dbname;"|sed '1,2d'`
+	do
+	$MYDUMP $dbname $table |gzip >$DBPATH/${dbname}_$(date +%F)/${dbname}_${table}.sql.gz
+	done
 done
