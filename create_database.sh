@@ -1,12 +1,10 @@
 #!/bin/bash
-
-PATH=/usr/bin/mysql
-DBBK=/tmp
+export PATH=$PATH
 MYUSER=root
 MYPASSWD=P@ssw0rd
 MYSOCKET=/var/lib/mysql/mysql.sock
-MYCMD="mysql -u$MYUSER -p$MYPASSWD -S $MYSOCKET "
-for dbname in test{1..100}
+MYCMD="mysql -u$MYUSER -p$MYPASSWD -S $MYSOCKET"
+for name in `seq -w 10` 
 do
-	echo $MYCMD -e "create database $dbname"
+	$MYCMD -e "create database windows$name;"
 done 
