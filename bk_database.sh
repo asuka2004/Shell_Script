@@ -1,7 +1,14 @@
-#!/bin/bash
-PATH=$PATH
-export PATH
-#PATH=/usr/bin/mysql
+#!/bin/sh
+# **************************************************
+# Description  : Backup table on Mysql5.6 
+# Build        : 2022-03-24 23:17
+# Author       : Kung
+# System       : CentOS 7.6
+# Version      : 1.1
+#              :     
+# *************************************************
+export PATH=$PATH
+. /etc/init.d/functions
 DBPATH=/root/tmp
 MYUSER=root
 MYPASS=P@ssw0rd
