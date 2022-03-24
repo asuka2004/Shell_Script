@@ -1,4 +1,14 @@
-#!/bin/bash
+#!/bin/sh
+# **************************************************
+# Description  : Array study. Use kind of judgement    
+# Build        : 2022-03-24 23:46
+# Author       : Kung
+# System       : CentOS 7.6
+# Version      : 1.1
+#              :     
+# *************************************************
+export PATH=$PATH
+. /etc/init.d/functions
 
 array=(1 2 3 4 5)
 

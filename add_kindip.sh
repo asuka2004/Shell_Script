@@ -1,4 +1,14 @@
-#!/bin/bash
+#!/bin/sh
+# **************************************************
+# Description  : Add/del ip to network card 
+# Build        : 2022-03-24 23:43
+# Author       : Kung
+# System       : CentOS 7.6 
+# Version      : 1.1
+#              :     
+# *************************************************
+export PATH=$PATH
+. /etc/init.d/functions
 
 [ -f /etc/init.d/functions ]&& . /etc/init.d/functions
 RETVAL=0
@@ -60,10 +70,4 @@ case "$1" in
 
 esac
 exit $RETVAL
-
-
-
-
-
-
 

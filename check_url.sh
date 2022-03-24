@@ -1,4 +1,14 @@
-#!/bin/bash
+#!/bin/sh
+# **************************************************
+# Description  : Whether url is heathy or not 
+# Build        : 2022-03-24 23:37
+# Author       : Kung
+# System       : CentOS 7.6
+# Version      : 1.1
+#              :     
+# *************************************************
+export PATH=$PATH
+. /etc/init.d/functions
 
 checkurl(){
 timeout=10
