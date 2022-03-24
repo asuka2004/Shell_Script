@@ -1,4 +1,13 @@
-#!/bin/bash
+#!/bin/sh
+# **************************************************
+# Description  : Add/del user list 
+# Build        : 2022-03-24 23:34
+# Author       : Kung
+# System       : CentOS 7.6
+# Version      : 1.1
+#              :     
+# *************************************************
+export PATH=$PATH
 . /etc/init.d/functions
 FILE_PATH=/root/gittest/openvpn.conf
 [ ! -f $FILE_PATH ]&& touch $FILE_PATH

@@ -1,13 +1,23 @@
-#!/bin/bash
-#Author: Kung
-#Subject:  url check
-
+#!/bin/sh
+# **************************************************
+# Description  : Whether url list is heathy or not  
+# Build        : 2022-03-24 23:26
+# Author       : Kung
+# System       : CentOS 7.6 
+# Version      : 1.1
+#              :     
+# *************************************************
+export PATH=$PATH
 . /etc/init.d/functions
+
 url_count=0
 url_list=(
 www.google.com
-www..roc
+www.kung.roc
 www.yahoo.com.tw
+www.sina.com.tw
+www.pchome.com.tw
+www.ithome.com.tw
 )
 function url_check(){
 	for((i=0;i<`echo ${#url_list[*]}`;i++  ))
@@ -26,7 +36,7 @@ function main(){
 	while true
 	do
 		url_check
-		echo "Please wait five second!!! The Count is $url_count time "
+		echo "Please wait me five second!!! The count is $url_count time "
 		sleep 5  
 	done
 }
