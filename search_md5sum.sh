@@ -1,6 +1,14 @@
-#!/bin/bash
-#Author:Kung
-#Subject: number md5sum
+#!/bin/sh
+# **************************************************
+# Description  :  
+# Build        : 2022-03-24 23:54
+# Author       : Kung
+# System       : 
+# Version      : 
+#              :     
+# *************************************************
+export PATH=$PATH
+. /etc/init.d/functions
 
 for n in {0..10}
 do
