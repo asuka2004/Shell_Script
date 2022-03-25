@@ -1,4 +1,15 @@
-#!/bin/bash
+#!/bin/sh
+# **************************************************
+# Description  : insert table into database on mysql 5.6
+# Build        : 2022-03-25 23:27
+# Author       : Kung
+# System       : CentOS 7.6
+# Version      : 1.1
+#              :     
+# *************************************************
+export PATH=$PATH
+. /etc/init.d/functions
+
 echo "请输入字段servnumber的值："
 read serber
 echo "请输入创建sql语句的数量："

@@ -1,8 +1,18 @@
-#!/bin/bash
+#!/bin/sh
+# **************************************************
+# Description  : test nginx 
+# Build        : 2022-03-25 23:23
+# Author       : Kung
+# System       : CentOS 7.6
+# Version      : 1.1
+#              :     
+# *************************************************
+export PATH=$PATH
+. /etc/init.d/functions
+
 path=/usr/local/nginx/sbin/
 pid=/usr/local/nginx/logs/nginx.pid
 RETVAL=0
-. /etc/init.d/functions
 
 start(){
 	if [ `netstat -ntulp|grep nginx|wc -l` -eq 0 ];then 

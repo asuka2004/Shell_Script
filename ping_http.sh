@@ -1,4 +1,13 @@
-#!/bin/bash
+#!/bin/sh
+# **************************************************
+# Description  : test web is normal or not 
+# Build        : 2022-03-25 23:20
+# Author       : Kung
+# System       : CentOS 7.6
+# Version      : 1.1
+#              :     
+# *************************************************
+export PATH=$PATH
 . /etc/init.d/functions
 
 if [ $# -ne 1 ]

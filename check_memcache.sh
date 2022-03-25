@@ -1,4 +1,14 @@
-#!/bin/bash
+#!/bin/sh
+# **************************************************
+# Description  : check memory cache 
+# Build        : 2022-03-25 23:29
+# Author       : Kung
+# System       : CentOS 7.6
+# Version      : 1.1
+#              :     
+# *************************************************
+export PATH=$PATH
+. /etc/init.d/functions
 
 if [ `netstat -ntulp|grep 11211 |wc -l` -lt 1 ]
 	then

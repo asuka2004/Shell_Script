@@ -1,10 +1,10 @@
 #!/bin/sh
 # **************************************************
-# Description  :  
+# Description  : study read 
 # Build        : 2022-03-24 23:54
 # Author       : Kung
-# System       : 
-# Version      : 
+# System       : CentOS 7.6 
+# Version      : 1.1
 #              :     
 # *************************************************
 export PATH=$PATH

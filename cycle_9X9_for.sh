@@ -1,4 +1,14 @@
-#!/bin/bash
+#!/bin/sh
+# **************************************************
+# Description  : 9**
+# Build        : 2022-03-25 23:28
+# Author       : Kung
+# System       : CentOS 7.6
+# Version      : 1.1
+#              :     
+# *************************************************
+export PATH=$PATH
+. /etc/init.d/functions
 
 for num1 in `seq 9`
 do

@@ -1,4 +1,15 @@
-#!/bin/bash
+#!/bin/sh
+# **************************************************
+# Description  : cal sum
+# Build        : 2022-03-25 23:19
+# Author       : Kung
+# System       : CentOS 7.6
+# Version      : 1.1
+#              :     
+# *************************************************
+export PATH=$PATH
+. /etc/init.d/functions
+
 sum=0
 
 while read line

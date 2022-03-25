@@ -1,6 +1,14 @@
-#!/bin/bash
-#Author: Kung
-#Function: scp file to remote server
+#!/bin/sh
+# **************************************************
+# Description  : study cp file to remote ip 
+# Build        : 2022-03-25 23:17
+# Author       : Kung
+# System       : CentOS 7.6
+# Version      : 1.1
+#              :     
+# *************************************************
+export PATH=$PATH
+. /etc/init.d/functions
 if [ $# -ne 2 ];then
 	echo $"Usage:$0 file dir"
 	exit
