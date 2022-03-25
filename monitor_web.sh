@@ -1,6 +1,16 @@
-#!/bin/bash
+#!/bin/sh
+# **************************************************
+# Description  : protect file 
+# Build        : 2022-03-25 23:12
+# Author       : Kung
+# System       : CentOS 7.6
+# Version      : 1.1
+#              :     
+# *************************************************
+export PATH=$PATH
+. /etc/init.d/functions
+
 RETVAL=0
-export LANG=C
 CHECK_DIR=/var/www
 [ -e $CHECK_DIR ]||exit 1
 
