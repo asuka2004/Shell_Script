@@ -1,6 +1,13 @@
-#!/bin/bash
-#author:  Kung
-#subject: add new account&password
+#!/bin/sh
+# **************************************************
+# Description  : add user and password
+# Build        : 2022-03-25 23:08
+# Author       : Kung
+# System       : CentOS 7.6
+# Version      : 1.1
+#              :     
+# *************************************************
+export PATH=$PATH
 . /etc/init.d/functions
 user="student"
 passfile="/root/github/userpasswd.log"

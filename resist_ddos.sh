@@ -1,6 +1,14 @@
-#!/bin/bash
-#Author:Kung
-#Function: resist ddos attack
+#!/bin/sh
+# **************************************************
+# Description  : resist ddos
+# Build        : 2022-03-25 23:05
+# Author       : Kung
+# System       : CentOS 7.6
+# Version      : 1.1
+#              :     
+# *************************************************
+export PATH=$PATH
+. /etc/init.d/functions
 
 file=$1
 while true
