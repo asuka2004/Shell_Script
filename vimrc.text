@@ -5,7 +5,7 @@ map <F2> :call TitleDet()<cr>
      call append(2,"# Description  :  ")
      call append(3,"# Build        : ".strftime("%Y-%m-%d %H:%M"))
      call append(4,"# Author       : Kung")
-     call append(5,"# Filename     : ".expand("%:t"))")
+     call append(5,"# System       :    ")
      call append(6,"# Version      :     ")
      call append(7,"#              :     ")
      call append(8,"# *************************************************")
