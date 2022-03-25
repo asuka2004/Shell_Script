@@ -9,9 +9,10 @@
 # *************************************************
 export PATH=$PATH
 . /etc/init.d/functions
-if [ $# -ne 2 ];then
-	echo $"Usage:$0 file dir"
-	exit
+if [ $# -ne 2 ]
+	then
+		echo $"Usage:$0 file dir"
+		exit
 fi
 file=$1
 dir=$2
