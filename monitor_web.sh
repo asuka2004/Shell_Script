@@ -19,7 +19,6 @@ COUNT="/tmp/count.db.ori"
 ERROR_LOG="/tmp/err.log"
 
 [ -e $COUNT ]|| exit 1
-[ -e $COUNT ]|| exit 1
 
 md5sum -c --quiet  /tmp/context.db.ori &>>$ERROR_LOG
 RETVAL=$?
