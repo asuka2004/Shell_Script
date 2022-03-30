@@ -13,7 +13,8 @@ FILE_PATH=/root/gittest/openvpn.conf
 [ ! -f $FILE_PATH ]&& touch $FILE_PATH
 
 usage(){
- 	USAGE:`basename $0` {-add|-del|-search} username
+	echo "USAGE: $0 {-add|-del} username"
+	
 } 
 
 if [ $UID -ne 0 ];then
@@ -42,7 +43,6 @@ case "$1" in
 	fi
 	;;
 
-
 	-del)
 	shift
 	if [ `grep "\b$1\b" ${FILE_PATH}|wc -l` -lt 1 ];then
@@ -57,6 +57,7 @@ case "$1" in
 		exit
 	fi
 	;;
+
 	*)
 	usage
 	exit

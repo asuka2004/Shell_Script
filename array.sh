@@ -13,7 +13,7 @@ export PATH=$PATH
 array=(a b c d e f)
 for ((i=0;i<${#arr[*]};i++))
 do
- if [ ${#array[$i]} -lt 7 ]
+ if [ ${array[$i]} -lt 4 ]
 	then
 		echo "${array[$i]}"
  fi
