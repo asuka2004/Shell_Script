@@ -20,7 +20,7 @@ www.pchome.com.tw
 www.ithome.com.tw
 )
 function url_check(){
-	for((i=0;i<`echo ${#url_list[*]}`;i++  ))
+	for((i=0;i<${#url_list[*]};i++  ))
 	do
 		wget -o /dev/null -T 3 --tries=1 --spider ${url_list[$i]}>/dev/null 2>&1
 		if [ $? -eq 0 ];then

@@ -1,6 +1,6 @@
 #!/bin/sh
 # **************************************************
-# Description  : Whether url is heathy or not 
+# Description  : check  url is heathy or offline 
 # Build        : 2022-03-24 23:37
 # Author       : Kung
 # System       : CentOS 7.6
@@ -21,7 +21,7 @@ while true
  if [ $? -ne 0 ]
   then
         ((fails=fails+1))
-  else
+ else
 	((success=success+1))
  fi
  
