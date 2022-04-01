@@ -12,11 +12,20 @@ export PATH=$PATH
 
 i=1
 sum=0
-while [ $i -lt 10 ]
+while [ $i -lt 5 ]
 do
- ((sum=sum+i))
- ((i++))
+ 	((sum=sum+i))
+ 	((i++))
 done
+[ "$sum" -ne 0 ] && printf "Total sum is:$sum\n"
 
-[ "$sum" -ne 0 ] && printf "Total sum is : $sum\n"
+
+echo " "
+
+sun=0
+for ((i=1;i<5;i++))
+do
+	((sun=sun+i))
+done
+[ "$sum" -ne 0 ] && printf "Total sum is:$sum\n"
  

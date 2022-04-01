@@ -14,19 +14,19 @@ array=(1 2 3 4 5)
 
 for((i=0;i<${#array[*]};i++))
 do
-	echo ${array[i]}
+	echo ${array[$i]}
 done
 
 
-for n in ${array[*]}
+for i in ${array[*]}
 do
-	echo $n
+	echo $i
 done
 
 
 i=0
 while ((i<${#array[*]}))
 do
-	echo ${array[i]}
+	echo ${array[$i]}
 	((i++))
 done

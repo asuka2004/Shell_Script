@@ -1,6 +1,6 @@
 #!/bin/sh
 # **************************************************
-# Description  : Add/del user list 
+# Description  : Add/del vpn user list 
 # Build        : 2022-03-24 23:34
 # Author       : Kung
 # System       : CentOS 7.6
@@ -14,7 +14,6 @@ FILE_PATH=/root/gittest/openvpn.conf
 
 usage(){
 	echo "USAGE: $0 {-add|-del} username"
-	
 } 
 
 if [ $UID -ne 0 ];then

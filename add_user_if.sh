@@ -20,7 +20,7 @@ do
   then
 	action "$user$num add new account" /bin/true
  else
-	action "$user$num fail account" /bin/false
+	action "$user$num fail new account" /bin/false
  fi
 
 
