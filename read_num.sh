@@ -1,5 +1,5 @@
-#!/bin/sh
-# **************************************************
+
+#!/bin/bash
 # Description  : Enter number and + - * %   
 # Build        : 2022-04-02 11:14
 # Author       : Kung
@@ -35,5 +35,3 @@ if [ -n "`echo $secondnum|sed 's/[0-9]//g'`" ]
 fi
 echo "${firstnum}${operators}${secondnum}=$((${firstnum}${operators}${secondnum}))"
 
-
- 
