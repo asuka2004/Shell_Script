@@ -57,6 +57,18 @@ case "$1" in
 	fi
 	;;
 
+	-search)
+	shift
+	if [ `grep -w "$1" ${FILE_PATH}|wc -l` -lt 1 ]
+	 then
+		echo $"$1 not exist"
+		exit
+	else
+		echo $"$1 exist"
+		exit
+	fi
+	;;
+
 	*)
 	usage
 	exit
