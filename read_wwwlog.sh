@@ -1,6 +1,6 @@
 #!/bin/sh
 # **************************************************
-# Description  : cal sum
+# Description  : cal apache log  sum
 # Build        : 2022-03-25 23:19
 # Author       : Kung
 # System       : CentOS 7.6
@@ -11,7 +11,7 @@ export PATH=$PATH
 . /etc/init.d/functions
 
 sum=0
-
+exec<$1
 while read line
 do
  size=`echo $line |awk '{print $10}'`
@@ -21,5 +21,5 @@ do
 	continue
  fi
  ((sum=sum+$size))
-done<$1
-echo "Total: `echo $((${sum}))`"
+done
+echo "Total: `echo $((${sum}/1024)) KB`"
