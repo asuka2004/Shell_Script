@@ -1,6 +1,6 @@
-#!/bin/sh
+#!/bin/bash
 # **************************************************
-# Description  : 9**
+# Description  : 9*9
 # Build        : 2022-03-25 23:28
 # Author       : Kung
 # System       : CentOS 7.6
@@ -28,5 +28,4 @@ do
   done
 echo " "
 done
-#author:
  
