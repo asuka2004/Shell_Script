@@ -10,10 +10,10 @@
 export PATH=$PATH
 . /etc/init.d/functions
 
-array=(1 2 3 4 5 6 7)
-for ((i=0;i<${#arr[*]};i++))
+array=( i am gilson not tony kung )
+for ((i=0;i<${#array[*]};i++))
 do
- 	if [ ${array[*]} -eq 4 ]
+ 	if [ ${#array[$i]} -lt 3 ]
 	 then
 		echo "${array[$i]}"
  	fi
