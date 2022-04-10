@@ -10,7 +10,8 @@
 export PATH=$PATH
 . /etc/init.d/functions
 
-if [ $# -ne 1 ];then
+if [ $# -ne 1 ]
+ then
 	echo "Please input {break|continue|exit|return}"
 	exit 1
 fi
@@ -23,7 +24,7 @@ test(){
 	fi
 	echo $i	
  done
- echo " in func"
+ echo "I am in func"
 }
 test $*
  
