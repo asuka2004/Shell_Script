@@ -1,14 +1,16 @@
-#!/bin/sh
+#!/bin/bash
 # **************************************************
-# Description  : Add/del ip to network card 
-# Build        : 2022-03-24 23:43
+# Description  : add/del network ip address 
+# Build        : 2022-04-11 22:24
 # Author       : Kung
-# System       : CentOS 7.6 
+# System       : CentOS 7.6
 # Version      : 1.1
-#              :     
-# *************************************************
+# ************************************************ 
+export LANG=C
 export PATH=$PATH
 . /etc/init.d/functions
+script_path=/root/github
+log_path=/root/tmp
 
 [ -f /etc/init.d/functions ]&& . /etc/init.d/functions
 RETVAL=0
