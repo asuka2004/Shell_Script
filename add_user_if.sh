@@ -1,14 +1,16 @@
-#!/bin/sh
+#!/bin/bash
 # **************************************************
-# Description  : add user and password
-# Build        : 2022-03-25 23:08
+# Description  : batch to add  user 
+# Build        : 2022-04-11 22:32
 # Author       : Kung
 # System       : CentOS 7.6
 # Version      : 1.1
-#              :     
-# *************************************************
+# ************************************************ 
+export LANG=C
 export PATH=$PATH
 . /etc/init.d/functions
+script_path=/root/github
+log_path=/root/tmp
 user="student"
 passfile="/root/github/userpasswd.log"
 
