@@ -1,10 +1,10 @@
 #!/bin/bash
 # **************************************************
-# Description  : 
+# Description  : push to github 
 # Build        : 2022-04-11 22:36
 # Author       : Kung
-# System       : 
-# Version      : 
+# System       : CentOS 7.6
+# Version      : 1.1
 # ************************************************ 
 export LANG=C
 export PATH=$PATH
