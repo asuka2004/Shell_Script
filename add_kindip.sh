@@ -11,10 +11,10 @@ export LANG=C
 export PATH=$PATH
 [ -f /etc/init.d/functions ] && . /etc/init.d/functions
 
-script_path=/root/github
-[ ! -d ${script_path} ] && mkdir -p ${script_path}
-log_path=/root/tmp
-[ ! -d ${log_path} ] && mkdir -p ${log_path}
+Script_Path=/root/github
+[ ! -d ${Script_Path} ] && mkdir -p ${Script_Path}
+Log_Path=/root/tmp
+[ ! -d ${Log_Path} ] && mkdir -p ${Log_Path}
 
 RETVAL=0
 add(){
