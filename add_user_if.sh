@@ -34,14 +34,15 @@ do
 
 done
 
-sleep 10
-echo "........ "
+sleep 5
+echo "..................................................................."
+
 for n in {01..05} 
 do 
 	userdel -r std$n 
 		if [ $? -eq 0 ]
 	 	 then
-			action "$User$n success del account" /bin/true
+			action "$User$n success to del account" /bin/true
 		else
 			action "$User$n fail to del account" /bin/false
 		fi

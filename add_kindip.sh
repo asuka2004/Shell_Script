@@ -1,12 +1,11 @@
 #!/bin/bash
-# **************************************************
-# Description  : Batch add/del Network IP Address 
-# Build        : 2022-04-12 21:28
-# Author       : Kung
-# System       : CentOS 7.6
-# Version      : 1.1
+# Author      : Tony
+# Build       : 2022-04-12 23:58
+# Version     : V1.0
+# Description : Batch add/del Network Card IP Address           
+# System      : CentOS 7.6 
 # ************************************************ 
-export PS4='+${LINENO} '
+export PS4='++ ${LINENO} ' 
 export LANG=C
 export PATH=$PATH
 [ -f /etc/init.d/functions ] && . /etc/init.d/functions
