@@ -1,11 +1,11 @@
 #!/bin/bash
-# **************************************************
-# Description  : Batch to add/del  user 
-# Build        : 2022-04-11 22:32
-# Author       : Kung
-# System       : CentOS 7.6
-# Version      : 1.1
+# Author      : Tony
+# Build       : 2022-04-13 00:22
+# Version     : V1.0
+# Description : Batch add/del user           
+# System      : CentOS 7.6 
 # ************************************************ 
+export PS4='++ ${LINENO}'  
 export LANG=C
 export PATH=$PATH
 [ -f /etc/init.d/functions ] && . /etc/init.d/functions
@@ -14,7 +14,6 @@ Script_Path=/root/github
 [ ! -d ${Script_Path} ] && mkdir -p ${Script_Path}
 Log_Path=/root/tmp
 [ ! -d ${Log_Path} ] && mkdir -p ${Log_Path}
-
 
 User="std"
 Password_File="/root/github/passwd.txt"
