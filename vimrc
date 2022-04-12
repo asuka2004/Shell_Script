@@ -1,19 +1,19 @@
+
 map <F2> :call TitleDet()<cr>
  function AddTitle()
-     call append(0,"\#!/bin/bash")
-     call append(1,"# **************************************************")
-     call append(2,"# Description  :  ")
-     call append(3,"# Build        : ".strftime("%Y-%m-%d %H:%M"))
-     call append(4,"# Author       : Kung")
-     call append(5,"# System       :    ")
-     call append(6,"# Version      :     ")
-     call append(7,"# *************************************************")
+     call append(0,"#!/bin/bash")
+     call append(1,"# Author      : Tony")
+     call append(2,"# Build       : ".strftime("%Y-%m-%d %H:%M")) 
+     call append(3,"# Version     : V1.0")
+     call append(4,"# Description :            ")
+     call append(5,"# System      : CentOS 7.6 ")
+     call append(6,"# ************************************************ ")
+     call append(7,"export PS4='++ ${LINENO}'  ")
      call append(8,"export LANG=C")
      call append(9,"export PATH=$PATH")
-     call append(10,"export PS4='+${LINENO} ') 
-     call append(11,"[ -f /etc/init.d/functions] && . /etc/init.d/functions")
-     call append(12,"script=/root/github")
-     call append(13,"log=/root/log")
+     call append(10,"[ -f /etc/init.d/functions ] && . /etc/init.d/functions")
+     call append(11,"Script_Path=/root/github")
+     call append(12,"Log_Path=/root/tmp")
      echohl WarningMsg | echo "Successful in adding copyright." | echohl None
  endf
  
@@ -29,7 +29,7 @@ map <F2> :call TitleDet()<cr>
  endfunction
  
  function TitleDet()
-     let n=1 
+     let n=1
      while n < 10
          let line = getline(n)
          if line =~ '^\#\s*\S*Last\smodified\S*.*$'
@@ -40,3 +40,4 @@ map <F2> :call TitleDet()<cr>
      endwhile
      call AddTitle()
  endfunction
+
