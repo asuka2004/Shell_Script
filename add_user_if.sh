@@ -1,6 +1,6 @@
 #!/bin/bash
 # **************************************************
-# Description  : Batch to add  user 
+# Description  : Batch to add/del  user 
 # Build        : 2022-04-11 22:32
 # Author       : Kung
 # System       : CentOS 7.6
@@ -14,7 +14,6 @@ Script_Path=/root/github
 [ ! -d ${Script_Path} ] && mkdir -p ${Script_Path}
 Log_Path=/root/tmp
 [ ! -d ${Log_Path} ] && mkdir -p ${Log_Path}
-
 
 
 User="std"
@@ -36,7 +35,7 @@ do
 done
 
 sleep 10
-
+echo "........ "
 for n in {01..05} 
 do 
 	userdel -r std$n 
