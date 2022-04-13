@@ -12,5 +12,5 @@ export PATH=$PATH
 script_path=/root/github
 log_path=/root/tmp
 	git add --all 
-	git commit -m $(date +%Y/%m/%d/%R)
+	git commit -m $(date +%Y-%m-%d-%R)
 	git push -u origin master
