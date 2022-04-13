@@ -17,6 +17,7 @@ Log_Path=/root/tmp
 
 User="std"
 Password_File="/root/tmp/passwd.txt"
+[ ! -f ${Password_File} ] && touch ${Password_File}
 
 for num in `seq -w 05`
 do
