@@ -16,7 +16,7 @@ Log_Path=/root/tmp
 [ ! -d ${Log_Path} ] && mkdir -p ${Log_Path}
 
 User="std"
-Password_File="/root/github/passwd.txt"
+Password_File="/root/tmp/passwd.txt"
 
 for num in `seq -w 05`
 do
