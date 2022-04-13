@@ -1,7 +1,7 @@
 #!/bin/bash
 # Author      : Kung
 # Build       : 2022-04-13 10:50
-# Version     : V1.0
+# Version     : V1.0 
 # Description : Test char less than 4            
 # System      : CentOS 7.6 
 			       
