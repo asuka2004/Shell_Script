@@ -39,7 +39,7 @@ case "$1" in
 			exit
 	else
 		chattr -i ${File_Path}
-		cp ${File_Path} ${File_Path}.$(date +%F%T)
+		cp ${File_Path} ${File_Path}_$(date +%F%T).txt
 		echo "$1" >> ${File_Path}
 		[ $? -eq 0 ]&&action $"Success to add VPN User $1" /bin/true
 		chattr +i ${File_Path}
@@ -50,11 +50,11 @@ case "$1" in
 	shift
 	if [ `grep "$1" ${File_Path}|wc -l` -lt 1 ]
 	 then
-		action $"Not find VPN User $1 " /bin/false
+		action $"Not find VPN User $1" /bin/false
 		exit 
 	else
 		chattr -i ${File_Path}
-		cp ${File_Path} ${File_Path}.$(date +%F%T)
+		cp ${File_Path} ${File_Path}_$(date +%F%T).txt
 		sed -i "/^${1}$/d" ${File_Path}
 		[ $? -eq 0 ]&& action $"Success to del VPN User $1" /bin/true
 		chattr +i ${File_Path}
