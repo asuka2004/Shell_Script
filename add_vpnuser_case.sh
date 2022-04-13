@@ -2,9 +2,9 @@
 # Author      : Kung
 # Build       : 2022-04-13 08:51
 # Version     : V1.0 First
-# Description : Add/Del VPN User list           
+# Description : Batch Add/Del VPN User list           
 # System      : CentOS 7.6 
-			       
+
 export PS4='++ ${LINENO}'  
 export LANG=C
 export PATH=$PATH
@@ -13,6 +13,8 @@ Script_Path=/root/github
 [ ! -d ${Script_Path} ] && mkdir -p ${Script_Path}
 Log_Path=/root/tmp
 [ ! -d ${Log_Path} ] && mkdir -p ${Log_Path}
+File_Path=/root/github/vpn.txt
+[ ! -f ${File_Path} ] && touch ${File_Path}
 
 usage(){
 	echo "USAGE: $0 {-add|-del} username"
@@ -31,42 +33,43 @@ fi
 case "$1" in
 	-add)
 	shift
-	if grep "^$1$" ${FILE_PATH} >/dev/null 2>&1
+	if grep "$1" ${File_Path} >/dev/null 2>&1
 		then
-			action $"vpnuser,$1 is exist" /bin/false
+			action $"VPN User $1 already exists" /bin/false
 			exit
 	else
-		chattr -i ${FILE_PATH}
-		/bin/cp ${FILE_PATH} ${FILE_PATH}.$(date +%F%T)
-		echo "$1" >> ${FILE_PATH}
-		[ $? -eq 0 ]&&action $"add $1" /bin/true
-		chattr +i ${FILE_PATH}
+		chattr -i ${File_Path}
+		cp ${File_Path} ${File_Path}.$(date +%F%T)
+		echo "$1" >> ${File_Path}
+		[ $? -eq 0 ]&&action $"Success to add VPN User $1" /bin/true
+		chattr +i ${File_Path}
 	fi
 	;;
 
 	-del)
 	shift
-	if [ `grep "\b$1\b" ${FILE_PATH}|wc -l` -lt 1 ];then
-		action $"vpnuser,$1 is not exist" /bin/false
+	if [ `grep "$1" ${File_Path}|wc -l` -lt 1 ]
+	 then
+		action $"Not find VPN User $1 " /bin/false
 		exit 
 	else
-		chattr -i ${FILE_PATH}
-		/bin/cp ${FILE_PATH} ${FILE_PATH}.$(date +%F%T)
-		sed -i "/^${1}$/d" ${FILE_PATH}
-		[ $? -eq 0 ]&& action $"del $1" /bin/true
-		chattr +i ${FILE_PATH}
+		chattr -i ${File_Path}
+		cp ${File_Path} ${File_Path}.$(date +%F%T)
+		sed -i "/^${1}$/d" ${File_Path}
+		[ $? -eq 0 ]&& action $"Success to del VPN User $1" /bin/true
+		chattr +i ${File_Path}
 		exit
 	fi
 	;;
 
 	-search)
 	shift
-	if [ `grep -w "$1" ${FILE_PATH}|wc -l` -lt 1 ]
+	if [ `grep -w "$1" ${File_Path}|wc -l` -lt 1 ]
 	 then
-		echo $"$1 not exist"
+		echo $"Not find VPN User $1"
 		exit
 	else
-		echo $"$1 exist"
+		echo $"VPN User $1 already exists"
 		exit
 	fi
 	;;
