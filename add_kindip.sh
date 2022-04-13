@@ -4,7 +4,7 @@
 # Version     : V1.0
 # Description : Batch add/del Network Card IP Address           
 # System      : CentOS 7.6 
-# ************************************************ 
+
 export PS4='++ ${LINENO} ' 
 export LANG=C
 export PATH=$PATH

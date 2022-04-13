@@ -1,10 +1,10 @@
 #!/bin/bash
-# Author      : Tony
+# Author      : Kung
 # Build       : 2022-04-13 00:22
 # Version     : V1.0
 # Description : Batch add/del user           
 # System      : CentOS 7.6 
-# ************************************************ 
+
 export PS4='++ ${LINENO}'  
 export LANG=C
 export PATH=$PATH
