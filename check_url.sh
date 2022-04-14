@@ -1,43 +1,48 @@
-#!/bin/sh
-# **************************************************
-# Description  : check  url is heathy or offline 
-# Build        : 2022-03-24 23:37
-# Author       : Kung
-# System       : CentOS 7.6
-# Version      : 1.1
-#              :     
-# *************************************************
+#!/bin/bash
+# Author      : Kung
+# Build       : 2022-04-14 23:40
+# Version     : V1.0
+# Description : Check Web is not OK!!           
+# System      : CentOS 7.6 
+			       
+export PS4='++ ${LINENO}'  
+export LANG=C
 export PATH=$PATH
-. /etc/init.d/functions
+[ -f /etc/init.d/functions ] && . /etc/init.d/functions
+Script_Path=/root/github
+[ ! -d ${Script_Path} ] && mkdir -p ${Script_Path}
+Log_Path=/root/tmp
+[ ! -d ${Log_Path} ] && mkdir -p ${Log_Path}
 
-checkurl(){
+Check_Url(){
 timeout=10
-fails=0
-success=0
+Fails=0
+Success=0
 
 while true
- do
- wget --timeout=$timeout --tries=5 http://www.gss.sscom -q -O /dev/null
- if [ $? -ne 0 ]
-  then
-        ((fails=fails+1))
- else
-	((success=success+1))
- fi
+ 	do
  
- if [ $fails -ge 1 ]
-  then
-	critical="Waining!!!!websit is going down"
-	echo $critical|tee|mail -s "$critical" root@localhost
-	exit 2
- fi
+		wget --timeout=$timeout --tries=5 http://www.google.com -q -O /dev/null
+ 		if [ $? -ne 0 ]
+  	 	then
+        		((Fails=Fails+1))
+ 		else
+			((Success=Success+1))
+ 		fi
+ 
+ 		if [ $Fails -ge 2 ]
+  	 	then
+			Critical="Waining!!!!websit is going down"
+			echo $Critical | tee | mail -s "$Critical" root@localhost
+			exit 2
+ 		fi
 
- if [ $success -ge 2 ]
-  then
-	echo "success"
-	exit 0
- fi
+ 		if [ $Success -ge 2 ]
+  	 	then
+			echo "Success"
+			exit 0
+ 		fi
 
- done
+ 	done
 }
-checkurl
+Check_Url
