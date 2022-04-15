@@ -55,6 +55,7 @@ del(){
 			action "Fail to del 192.168.88.$ip" /bin/false
 		fi
 	done
+	return $RETVAL
 }
 
 case "$1" in

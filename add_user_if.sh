@@ -15,7 +15,7 @@ Script_Path=/root/github
 Log_Path=/root/tmp
 [ ! -d ${Log_Path} ] && mkdir -p ${Log_Path}
 
-User="std"
+User="student"
 Password_File="/root/tmp/passwd.txt"
 [ ! -f ${Password_File} ] && touch ${Password_File}
 
@@ -23,8 +23,7 @@ for num in `seq -w 05`
 do
  	Password="`openssl rand -base64 10 |md5sum|cut -c 3-8`"
  	useradd $User$num &>/dev/null 
- 	echo " ${Password}|passwd --stdin $user$num &>/dev/null"  
-	echo -e "User:$User$num\tPassword:$Password">>${Password_File}
+
  		if [ $? -eq 0 ]
   	 	 then
 			action "$User$num add new account" /bin/true
@@ -32,14 +31,17 @@ do
 			action "$User$num fail new account" /bin/false
  		fi
 
+ 	echo "${Password}|passwd --stdin $user$num &>/dev/null"  
+	echo -e "User:$User$num\tPassword:$Password">>${Password_File}
+
 done
 
 sleep 5
-echo "..................................................................."
+echo "Wait 5 second................................................"
 
 for n in {01..05} 
 do 
-	userdel -r std$n 
+	userdel -r student$n 
 		if [ $? -eq 0 ]
 	 	 then
 			action "$User$n success to del account" /bin/true
