@@ -11,19 +11,9 @@ export PATH=$PATH
 [ -f /etc/init.d/functions ] && . /etc/init.d/functions
 Script_Path=/root/github
 [ ! -d ${Script_Path} ] && mkdir -p ${Script_Path}
-Log_Path=/root/tmp
-[ ! -d ${Log_Path} ] && mkdir -p ${Log_Path}
-#!/bin/sh
-# **************************************************
-# Description  : change log 
-# Build        : 2022-03-25 23:30
-# Author       : Kung
-# System       : CentOS 7.6
-# Version      : 1.1
-#              :     
-# *************************************************
-export PATH=$PATH
-. /etc/init.d/functions
+#Log_Path=/root/tmp
+#[ ! -d ${Log_Path} ] && mkdir -p ${Log_Path}
+
 base_path='/usr/local/nginx/logs'
 log_path=$(date -d yesterday +"%Y%m")
 day=$(date -d yesterday +"%d")

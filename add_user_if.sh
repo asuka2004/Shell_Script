@@ -19,6 +19,7 @@ User="student"
 Password_File="/root/tmp/passwd.txt"
 [ ! -f ${Password_File} ] && touch ${Password_File}
 
+# Batch add user
 for num in `seq -w 05`
 do
  	Password="`openssl rand -base64 10 |md5sum|cut -c 3-8`"
@@ -39,6 +40,8 @@ done
 sleep 5
 echo "Wait 5 second................................................"
 
+
+#Batch del user
 for n in {01..05} 
 do 
 	userdel -r student$n 

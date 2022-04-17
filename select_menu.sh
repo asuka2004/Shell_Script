@@ -1,18 +1,19 @@
 #!/bin/bash
-# **************************************************
-# Description  : Install menu
-# Build        : 2022-04-10 10:35
-# Author       : Kung
-# System       : CentOS 7.6
-# Version      : 1.1
-# ************************************************ 
+# Author      : Kung
+# Build       : 2022-04-16 12:38
+# Version     : V1.0
+# Description : Install lnmp/lamp menu           
+# System      : CentOS 7.6 
+			       
+export PS4='++ ${LINENO}'  
 export LANG=C
 export PATH=$PATH
-. /etc/init.d/functions
-script_path=/root/github
-log_path=/root/tmp
+[ -f /etc/init.d/functions ] && . /etc/init.d/functions
+Script_Path=/root/github
+[ ! -d ${Script_Path} ] && mkdir -p ${Script_Path}
+Log_Path=/root/tmp
+[ ! -d ${Log_Path} ] && mkdir -p ${Log_Path}
 
-[ ! -d "$script_path" ] && mkdir $script_path -p
 function Usage(){
 	echo "Usage: $0 argv"
 	return 1
@@ -27,12 +28,12 @@ function Install_Service(){
 	echo "Ready for installation ${1}"
 	sleep 2
 
-	if [ ! -x "$script_path/${1}.sh" ]
+	if [ ! -x "$Script_Path/${1}.sh" ]
 	 then
-		echo "$script_path/${1}.sh do not exist or cat not exec"
+		echo "$Script_Path/${1}.sh do not exist or cat not exec"
 		return 1
 	else
-		$script_path/${1}.sh
+		$Script_Path/${1}.sh
 		return $retval
 	fi
 }
