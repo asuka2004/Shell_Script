@@ -14,22 +14,37 @@ Script_Path=/root/github
 Log_Path=/root/tmp
 [ ! -d ${Log_Path} ] && mkdir -p ${Log_Path}
 
-i=1
+a=1
 sum_a=0
-while [ $i -lt 5 ]
+while [ $a -lt 5 ]
 do
- 	((sum_a=sum_a+i))
- 	((i++))
+	echo $a
+ 	((sum_a=sum_a+a))
+ 	((a++))
 done
-[ "$sum_a" -ne 0 ] && printf "Total Sum is: $sum_a\n"
+[ "$sum_a" -ne 0 ] && printf "Total Sum:$sum_a\n"
 
-
-echo " "
+echo "wait 5 second................."
+sleep 5
 
 sum_b=0
-for ((i=1;i<5;i++))
+for ((b=1;b<5;b++))
 do
-	((sum_b=sum_b+i))
+	echo $b
+	((sum_b=sum_b+b))
 done
-[ "$sum_b" -ne 0 ] && printf "Total Sum is: $sum_b\n"
- 
+[ "$sum_b" -ne 0 ] && printf "Total Sum: $sum_b\n"
+
+echo "wait 5 second................."
+sleep 5 
+
+sum_c=0
+for c in {1..4}
+do
+	echo $c
+	((sum_c=sum_c+c))
+	((c++))
+done
+[ "$sum_c" -ne 0 ] && printf "Total Sum: $sum_c\n"
+
+

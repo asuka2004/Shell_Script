@@ -14,8 +14,8 @@ Script_Path=/root/github
 Log_Path=/root/tmp
 [ ! -d ${Log_Path} ] && mkdir -p ${Log_Path}
     
-    echo "PID for Child.sh: $$"
-    echo "Child.sh get \$A=$A from Parent.sh"
-    A=C
-    export A
-    echo "Child.sh: \$A is $A"
+echo "PID for Child.sh: $$"
+echo "Child.sh get \$A=$A from Parent.sh"
+A=C
+export A
+echo "Child.sh: \$A is $A"

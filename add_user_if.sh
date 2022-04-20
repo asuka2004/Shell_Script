@@ -22,7 +22,6 @@ Password_File="/root/tmp/passwd.txt"
 # Batch add user
 for num in `seq -w 05`
 do
- 	Password="`openssl rand -base64 10 |md5sum|cut -c 3-8`"
  	useradd $User$num &>/dev/null 
 
  		if [ $? -eq 0 ]
@@ -32,6 +31,7 @@ do
 			action "$User$num fail new account" /bin/false
  		fi
 
+ 	Password="`openssl rand -base64 10 |md5sum|cut -c 3-8`"
  	echo "${Password}|passwd --stdin $user$num &>/dev/null"  
 	echo -e "User:$User$num\tPassword:$Password">>${Password_File}
 

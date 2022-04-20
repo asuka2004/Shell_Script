@@ -14,11 +14,26 @@ Script_Path=/root/github
 Log_Path=/root/tmp
 [ ! -d ${Log_Path} ] && mkdir -p ${Log_Path}
 
-array=( William Gilson not Tony Kung )
-for ((i=0;i<${#array[*]};i++))
+ 
+array=( I am Tony Kung not William Gilson )
+
+for ((a=0;a<${#array[*]};a++))
 do
- 	if [ ${#array[$i]} -lt 4 ]
+ 	if [ ${#array[$a]} -lt 4 ]
 	 then
-		echo "${array[$i]}"
+		echo "${array[$a]}"
  	fi
 done
+			       
+echo "Wait 3 second..."
+sleep 3
+
+
+for b in ${array[*]}
+do
+	if [ ${#array[$b]} -lt 4 ]
+	 then
+		echo "${array[$b]}"
+	fi
+done
+

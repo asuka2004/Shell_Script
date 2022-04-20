@@ -14,10 +14,10 @@ Script_Path=/root/github
 Log_Path=/root/tmp
 [ ! -d ${Log_Path} ] && mkdir -p ${Log_Path}
     
- A=B
- echo "PID for Parent.sh before exec/source/fork:$$"
- export A
- echo "Parent.sh: \$A is $A"
+A=B
+echo "PID for Parent.sh before exec/source/fork:$$"
+export A
+echo "Parent.sh: \$A is $A"
     	
 case $1 in
  exec)
@@ -31,5 +31,5 @@ case $1 in
             ./Child.sh ;;
 esac
   	
- echo "PID for Parent.sh after exec/source/fork:$$"
- echo "Parent.sh: \$A is $A"
+echo "PID for Parent.sh after exec/source/fork:$$"
+echo "Parent.sh: \$A is $A"

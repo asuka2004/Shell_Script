@@ -16,19 +16,19 @@ Log_Path=/root/tmp
 
 array=(1 2 3 4 5)
 
-for((i=0;i<${#array[*]};i++))
+for((a=0;i<${#array[*]};i++))
 do
-	echo ${array[i]}
+	echo ${array[a]}
 done
 
-for n in ${array[*]}
+for b in ${array[*]}
 do
-	echo $n
+	echo $b
 done
 
-m=0
-while ((m<${#array[*]}))
+c=0
+while ((c<${#array[*]}))
 do
-	echo ${array[m]}
-	((m++))
+	echo ${array[c]}
+	((c++))
 done

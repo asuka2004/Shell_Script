@@ -61,17 +61,14 @@ del(){
 case "$1" in
 	start)
 		add
-		RETVAL=$?
 		;;
 	stop)
 		del
-		RETVAL=$?
 		;;
 	restart)
 		del
 		sleep 2
 		add
-		RETVAL=$?
 		;;
 	*)
 		printf "Usage:$0 {start|stop|restart}\n"
