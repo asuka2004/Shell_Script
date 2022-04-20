@@ -10,7 +10,7 @@
 export PATH=$PATH
 . /etc/init.d/functions
 MYUSER=root
-MYPASSWD=P@ssw0rd
+MYPASSWD=
 MYSOCKET=/var/lib/mysql/mysql.sock
 MYCMD="mysql -u$MYUSER -p$MYPASSWD -S $MYSOCKET"
 for name in `seq -w 10` 
