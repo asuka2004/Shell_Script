@@ -16,7 +16,7 @@ Log_Path=/root/tmp
 
 DBPATH=/root/tmp
 MYUSER=root
-MYPASS=P@ssw0rd
+MYPASS=
 SOCKET=/var/lib/mysql/mysql.sock
 MYCMD="mysql -u$MYUSER -p$MYPASS -S $SOCKET"
 MYDUMP="mysqldump -u$MYUSER -p$MYPASS -S $SOCKET"
