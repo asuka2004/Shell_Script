@@ -37,9 +37,8 @@ do
 
 done
 
-sleep 5
 echo "Wait 5 second................................................"
-
+sleep 5
 
 #Batch del user
 for n in {01..05} 
