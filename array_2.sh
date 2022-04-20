@@ -2,7 +2,7 @@
 # Author      : Kung
 # Build       : 2022-04-13 10:45
 # Version     : V1.0
-# Description : Array study. Use kind of judgement           
+# Description : Array study. list array number           
 # System      : CentOS 7.6 
 			       
 export PS4='++ ${LINENO}'  

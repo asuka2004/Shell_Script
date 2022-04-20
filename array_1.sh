@@ -2,7 +2,7 @@
 # Author      : Kung
 # Build       : 2022-04-13 10:50
 # Version     : V1.0 
-# Description : Test char less than 4            
+# Description : Test length less than 4            
 # System      : CentOS 7.6 
 			       
 export PS4='++ ${LINENO}'  
