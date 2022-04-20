@@ -16,15 +16,22 @@ Log_Path=/root/tmp
 
 array=(1 2 3 4 5)
 
-for((a=0;i<${#array[*]};i++))
+for((a=0;a<${#array[*]};a++))
 do
 	echo ${array[a]}
 done
 
+echo "Wait 3 second..."
+sleep 3
+
+b=0
 for b in ${array[*]}
 do
-	echo $b
+	echo ${array[b]}
 done
+
+echo "Wait 3 second..."
+sleep 3
 
 c=0
 while ((c<${#array[*]}))

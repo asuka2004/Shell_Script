@@ -28,12 +28,27 @@ done
 echo "Wait 3 second..."
 sleep 3
 
-
-for b in ${array[*]}
+b=0
+for b in ${#array[*]}
 do
 	if [ ${#array[$b]} -lt 4 ]
 	 then
 		echo "${array[$b]}"
 	fi
+	((b++))
 done
+
+echo "Wait 3 second..."
+sleep 3
+
+c=0
+while ((c<${#array[*]})) 
+do
+	if [ ${#array[$c]} -lt 4 ]
+	 then
+		echo "${array[$c]}"
+	fi
+	((c++))
+done
+
 
