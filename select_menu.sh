@@ -1,8 +1,8 @@
 #!/bin/bash
 # Author      : Kung
-# Build       : 2022-04-16 12:38
+# Build       : 2022-04-21 21:06
 # Version     : V1.0
-# Description : Install lnmp/lamp menu           
+# Description :            
 # System      : CentOS 7.6 
 			       
 export PS4='++ ${LINENO}'  
@@ -13,6 +13,7 @@ Script_Path=/root/github
 [ ! -d ${Script_Path} ] && mkdir -p ${Script_Path}
 Log_Path=/root/tmp
 [ ! -d ${Log_Path} ] && mkdir -p ${Log_Path}
+			       
 
 function Usage(){
 	echo "Usage: $0 argv"
