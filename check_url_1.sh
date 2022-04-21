@@ -21,7 +21,6 @@ Success=0
 
 while true
  	do
- 
 		wget --timeout=$timeout --tries=5 http://www.google.com -q -O /dev/null
  		if [ $? -ne 0 ]
   	 	then
@@ -46,3 +45,4 @@ while true
  	done
 }
 Check_Url
+

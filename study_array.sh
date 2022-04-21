@@ -2,7 +2,7 @@
 # Author      : Kung
 # Build       : 2022-04-13 10:50
 # Version     : V1.0 
-# Description : Test length less than 4            
+# Description : Study array            
 # System      : CentOS 7.6 
 			       
 export PS4='++ ${LINENO}'  
@@ -14,7 +14,7 @@ Script_Path=/root/github
 Log_Path=/root/tmp
 [ ! -d ${Log_Path} ] && mkdir -p ${Log_Path}
 
- 
+# Test lengh less than 4 
 array=( I am Tony Kung not William Gilson )
 
 for ((a=0;a<${#array[*]};a++))
@@ -25,19 +25,6 @@ do
  	fi
 done
 			       
-echo "Wait 3 second..."
-sleep 3
-
-b=0
-for b in ${#array[*]}
-do
-	if [ ${#array[$b]} -lt 4 ]
-	 then
-		echo "${array[$b]}"
-	fi
-	((b++))
-done
-
 echo "Wait 3 second..."
 sleep 3
 
@@ -52,3 +39,29 @@ do
 done
 
 
+# Test array
+arr=(1 2 3 4 5)
+
+for((a=0;a<${#arr[*]};a++))
+do
+	echo ${arr[a]}
+done
+
+echo "Wait 3 second..."
+sleep 3
+
+b=0
+for b in ${arr[*]}
+do
+	echo ${arr[b]}
+done
+
+echo "Wait 3 second..."
+sleep 3
+
+c=0
+while ((c<${#arr[*]}))
+do
+	echo ${arr[c]}
+	((c++))
+done
