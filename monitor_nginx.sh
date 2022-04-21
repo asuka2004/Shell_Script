@@ -5,7 +5,7 @@
 # Author       : Kung
 # System       : CentOS 7.6
 # Version      : 1.1
-#              :     
+#              : Monitor lvs    
 # *************************************************
 export PATH=$PATH
 . /etc/init.d/functions
