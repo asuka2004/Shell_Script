@@ -1,14 +1,18 @@
-#!/bin/sh
-# **************************************************
-# Description  : 
-# Build        : 2022-04-07 21:50
-# Author       : Kung
-# System       : 
-# Version      : 
-#              :     
-# *************************************************
+#!/bin/bash
+# Author      : Kung
+# Build       : 2022-04-21 19:47
+# Version     : V1.0
+# Description : Check Web to use input           
+# System      : CentOS 7.6 
+			       
+export PS4='++ ${LINENO}'  
+export LANG=C
 export PATH=$PATH
-. /etc/init.d/functions
+[ -f /etc/init.d/functions ] && . /etc/init.d/functions
+Script_Path=/root/github
+[ ! -d ${Script_Path} ] && mkdir -p ${Script_Path}
+Log_Path=/root/tmp
+[ ! -d ${Log_Path} ] && mkdir -p ${Log_Path}
 
 if [ $# -ne 1 ]
  then
