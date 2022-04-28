@@ -2,7 +2,7 @@
 # Author      : Kung
 # Build       : 2022-04-21 19:51
 # Version     : V1.0
-# Description :            
+# Description : Create a lot of data            
 # System      : CentOS 7.6 
 			       
 export PS4='++ ${LINENO}'  
@@ -14,15 +14,14 @@ Script_Path=/root/github
 Log_Path=/root/tmp
 [ ! -d ${Log_Path} ] && mkdir -p ${Log_Path}
 
-echo "请输入字段servnumber的值："
+echo "Please input servnumber: "
 read serber
-echo "请输入创建sql语句的数量："
+echo "Please input sql "
 read number
 # char=`head /dev/urandom | tr -dc 0-9 | head -c 11`
 for (( i=0;i<$number;i++ ))
 do
-pass=`head /dev/urandom | tr -dc a-z | head -c 8`
-let serber=serber+1
-echo "insert into test(id,username,servnumber,password,createtime)
-values('$i','user${i}','${serber}','$pass',now());" >>sql.txt
+	pass=`head /dev/urandom | tr -dc a-z | head -c 8`
+  	((serber=serber+1))
+	echo "insert into test(id,username,servnumber,password,createtime) values('$i','user${i}','${serber}','$pass',now());" >>sql.txt
 done
