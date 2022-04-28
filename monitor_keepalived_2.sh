@@ -1,8 +1,8 @@
 #!/bin/bash
 # Author      : Kung
-# Build       : 2022-04-21 19:49
+# Build       : 2022-04-25 15:34
 # Version     : V1.0
-# Description : Batch to create database&table           
+# Description :            
 # System      : CentOS 7.6 
 			       
 export PS4='++ ${LINENO}'  
@@ -14,11 +14,20 @@ Script_Path=/root/github
 Log_Path=/root/tmp
 [ ! -d ${Log_Path} ] && mkdir -p ${Log_Path}
 
-MYUSER=root
-MYPASSWD=
-MYSOCKET=/var/lib/mysql/mysql.sock
-MYCMD="mysql -u$MYUSER -p$MYPASSWD -S $MYSOCKET"
-for name in `seq -w 10` 
+
+VIP=192.168.88.27
+PORT=80
+IPVS=`rpm -qa ipvsadm|wc -l`
+
+while true
 do
-	$MYCMD -e "create database db$name; show databases;"
-done 
+	ping -w2 -c2 ${VIP} >/dev/null 2>&1
+
+	if [ $? -ne 0 ]
+	 then
+		sh ./monitor_lvs.sh start >/dev/null 2>&1
+	else
+		sh ./monitor_lvs.sh stop >/dev/null 2>&1
+	fi
+	sleep 5
+done
