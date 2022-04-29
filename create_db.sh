@@ -14,7 +14,7 @@ Script_Path=/root/github
 Log_Path=/root/tmp
 [ ! -d ${Log_Path} ] && mkdir -p ${Log_Path}
 
-MYUSER=root
+MYUSER=Kung
 MYPASSWD=
 MYSOCKET=/var/lib/mysql/mysql.sock
 MYCMD="mysql -u$MYUSER -p$MYPASSWD -S $MYSOCKET"
