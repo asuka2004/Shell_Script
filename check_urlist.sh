@@ -26,7 +26,8 @@ function Url_Check(){
 	for((i=0;i<${#Url_List[*]};i++))
 	do
 		wget -o /dev/null -T 3 --tries=1 --spider ${Url_List[$i]}>/dev/null 2>&1
-		if [ $? -eq 0 ];then
+		if [ $? -eq 0 ]
+		 then
 			action "${Url_List[$i]}" /bin/true
 		else
 			action "${Url_List[$i]}" /bin/false
