@@ -2,7 +2,7 @@
 # Author      : Kung
 # Build       : 2022-04-13 10:52
 # Version     : V1.0
-# Description : Backup table on MySql5.6           
+# Description : Backup table on MySql5.6 for Kung. User Kung have the privileges of "select all table"            
 # System      : CentOS 7.6 
 			       
 export PS4='++ ${LINENO}'  
@@ -19,7 +19,7 @@ MYUSER=Kung
 MYPASS=P@ssw0rd
 SOCKET=/var/lib/mysql/mysql.sock
 MYCMD="mysql -u$MYUSER -p$MYPASS -S $SOCKET"
-MYDUMP="mysqldump -u$MYUSER -p$MYPASS -S $SOCKET"
+MYDUMP="mysqldump -u$MYUSER -p$MYPASS -S $SOCKET -h localhost --no-tablespaces --single-transaction"
 
 [ ! -d "$DBPATH" ] && mkdir $DBPATH
 
