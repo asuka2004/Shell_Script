@@ -2,7 +2,7 @@
 # Author      : Kung
 # Build       : 2022-04-13 10:52
 # Version     : V1.0
-# Description : Backup table on MySql5.6 for Kung. User Kung have the privileges of "select all table"            
+# Description : Batch&Backup table on MySql5.6.             
 # System      : CentOS 7.6 
 			       
 export PS4='++ ${LINENO}'  
@@ -23,11 +23,28 @@ MYDUMP="mysqldump -u$MYUSER -p$MYPASS -S $SOCKET -h localhost --no-tablespaces -
 
 [ ! -d "$DBPATH" ] && mkdir $DBPATH
 
-for dbname in `$MYCMD -e "show databases"|sed '1d'|egrep -v "mysql|schema|performance_schema|sys|information_schema"` 
-do
- 	mkdir -p $DBPATH/${dbname}_$(date +%F) 
-	for table in `$MYCMD -e "use $dbname;show tables;"|sed '1d'`
+Create_db(){
+	
+	for dbname in `seq -w 05`
 	do
-	$MYDUMP $dbname $table |gzip >$DBPATH/${dbname}_$(date +%F)/${dbname}_${table}.sql.gz
+		$MYCMD -e "create database student$dbname;"
 	done
-done
+}
+Backup_db(){
+	for dbname in `$MYCMD -e "show databases"|sed '1d'|egrep -v "mysql|schema|performance_schema|sys|information_schema"` 
+	do
+ 		mkdir -p $DBPATH/${dbname}_$(date +%F) 
+		for table in `$MYCMD -e "use $dbname;show tables;"|sed '1d'`
+		do
+			$MYDUMP $dbname $table |gzip >$DBPATH/${dbname}_$(date +%F)/${dbname}_${table}.sql.gz
+		done
+	done
+}
+
+Main(){
+	Create_db
+	Backup_db
+}
+Main
+
+
