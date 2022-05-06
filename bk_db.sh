@@ -15,19 +15,17 @@ Log_Path=/root/tmp
 [ ! -d ${Log_Path} ] && mkdir -p ${Log_Path}
 
 DBPATH=/root/tmp
+[ ! -d "$DBPATH" ] && mkdir $DBPATH
 MYUSER=Kung
 MYPASS=P@ssw0rd
 SOCKET=/var/lib/mysql/mysql.sock
 MYCMD="mysql -u$MYUSER -p$MYPASS -S $SOCKET -h localhost"
 MYDUMP="mysqldump -u$MYUSER -p$MYPASS -S $SOCKET -h localhost --no-tablespaces --single-transaction"
 
-[ ! -d "$DBPATH" ] && mkdir $DBPATH
-
 Create_db(){
-	
-	for num in `seq -w 05` 
+	for num in `seq -w 02` 
 	do
-		$MYCMD -e "create database company$num;use company$num;create table dept(deptnu int primary key,dname VARCHAR(50),addr VARCHAR(50)) engine='InnoDB' DEFAULT CHARSET=utf8;create table employee(empno INT PRIMARY KEY ,ename VARCHAR(50) ,job VARCHAR(50),mgr INT ,hiredate DATE ,sal DECIMAL(4.2) ,deptnu INT ,foreign key (deptnu) references dept(deptnu)) engine='InnoDB' DEFAULT CHARSET=utf8;CREATE TABLE salgrade(grade INT PRIMARY KEY,lowsal INT ,highsal INT) engine='InnoDB' DEFAULT CHARSET=utf8;"
+		$MYCMD -e "create database company$num;use company$num;create table test(id int(7) zerofill auto_increment not null,username varchar(20),servnumber varchar(30),password varchar(20),createtime datetime,primary key (id))DEFAULT CHARSET=utf8;source /root/tmp/sql.txt;"
 	done
 }
 
@@ -42,15 +40,15 @@ Backup_db(){
 Restore_db(){
 	for dbname in `$MYCMD -e "show databases"|sed '1d'|egrep -v "mysql|schema|performance_schema|sys|information_schema"` 
 	do
-		gunzip ${DBPATH}/${dbname}_2022-05-03/${dbname}.sql.gz 
+		gunzip ${DBPATH}/${dbname}_2022-05-06/${dbname}.sql.gz 
 		$MYCMD ${dbname}<${DBPATH}/${dbname}_$(date +%F)/${dbname}.sql	
 	done
 }
 
 Main(){
 	Create_db
-	echo "Wait 5 second....."
-	sleep 5
+	echo "Wait 60 second....."
+	sleep 60
 	Backup_db
 	echo "Wait 5 second....."
 	sleep 5
