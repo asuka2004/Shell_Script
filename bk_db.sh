@@ -50,7 +50,10 @@ Main(){
 	Backup_db
 	echo "Wait 5 second....."
 	sleep 5
-	Restore_db	
+	Del_db	
+	echo "Wait 5 second....."
+	sleep 5
+	Restore_db
 }
 Main
 
