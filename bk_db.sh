@@ -23,10 +23,7 @@ MYCMD="mysql -u$MYUSER -p$MYPASS -S $SOCKET -h localhost"
 MYDUMP="mysqldump -u$MYUSER -p$MYPASS -S $SOCKET -h localhost --no-tablespaces --single-transaction"
 
 Create_db(){
-	for num in `seq -w 02` 
-	do
-		$MYCMD -e "create database company$num;use company$num;create table test(id int(7) zerofill auto_increment not null,username varchar(20),servnumber varchar(30),password varchar(20),createtime datetime,primary key (id))DEFAULT CHARSET=utf8;source /root/tmp/sql.txt;"
-	done
+	$MYCMD -e "create database db2;use db2;create table test(id int(7) zerofill auto_increment not null,username varchar(20),servnumber varchar(30),password varchar(20),createtime datetime,primary key (id))DEFAULT CHARSET=utf8;source /root/tmp/sql.txt;"
 }
 
 Backup_db(){
@@ -37,18 +34,19 @@ Backup_db(){
 	done
 }
 
+Del_db(){
+	$MYCMD -e "use db1;truncate table employee;"	
+}
+
 Restore_db(){
-	for dbname in `$MYCMD -e "show databases"|sed '1d'|egrep -v "mysql|schema|performance_schema|sys|information_schema"` 
-	do
-		gunzip ${DBPATH}/${dbname}_2022-05-06/${dbname}.sql.gz 
-		$MYCMD ${dbname}<${DBPATH}/${dbname}_$(date +%F)/${dbname}.sql	
-	done
+	gunzip ${DBPATH}/${dbname}_$(date +%F)/${dbname}.sql.gz 
+	$MYCMD ${dbname}<${DBPATH}/${dbname}_$(date +%F)/${dbname}.sql	
 }
 
 Main(){
 	Create_db
-	echo "Wait 60 second....."
-	sleep 60
+	echo "Wait 10 second....."
+	sleep 10
 	Backup_db
 	echo "Wait 5 second....."
 	sleep 5
