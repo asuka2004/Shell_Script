@@ -1,14 +1,18 @@
-#!/bin/sh
-# **************************************************
-# Description  : protect file 
-# Build        : 2022-03-25 23:12
-# Author       : Kung
-# System       : CentOS 7.6
-# Version      : 1.1
-#              :     
-# *************************************************
+#!/bin/bash
+# Author      : Kung
+# Build       : 2022-05-07 23:42
+# Version     : V1.0
+# Description : Monitor Web file           
+# System      : CentOS 7.6 
+			       
+export PS4='++ ${LINENO}'  
+export LANG=C
 export PATH=$PATH
-. /etc/init.d/functions
+[ -f /etc/init.d/functions ] && . /etc/init.d/functions
+Script_Path=/root/github
+[ ! -d ${Script_Path} ] && mkdir -p ${Script_Path}
+Log_Path=/root/tmp
+[ ! -d ${Log_Path} ] && mkdir -p ${Log_Path}
 
 RETVAL=0
 CHECK_DIR=/var/www

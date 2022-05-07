@@ -2,7 +2,7 @@
 # Author      : Kung
 # Build       : 2022-05-05 23:22
 # Version     : V1.0
-# Description :            
+# Description : Random lot of information to insert mysql5.6           
 # System      : CentOS 7.6 
 			       
 export PS4='++ ${LINENO}'  
