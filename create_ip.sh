@@ -1,5 +1,5 @@
 #!/bin/bash
-# Author      : Tony
+# Author      : Kung
 # Build       : 2022-04-12 23:58
 # Version     : V1.0
 # Description : Batch add/del Network Card IP Address           
