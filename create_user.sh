@@ -17,7 +17,7 @@ File_Path=/root/github/vpn.txt
 [ ! -f ${File_Path} ] && touch ${File_Path}
 
 usage(){
-	echo "USAGE: $0 {-add|-del} username"
+	echo "USAGE: $0 {-add|-del|-search} username"
 }
 
 if [ $UID -ne 0 ];then
