@@ -1,4 +1,4 @@
-
+set nu
 map <F2> :call TitleDet()<cr>
  function AddTitle()
      call append(0,"#!/bin/bash")
@@ -16,7 +16,7 @@ map <F2> :call TitleDet()<cr>
      call append(12,"Log_Path=/root/tmp")
      echohl WarningMsg | echo "Successful in adding copyright." | echohl None
  endf
- 
+
  function UpdateTitle()
       normal m'
       execute '/# Last modified/s@:.*$@\=strftime(":\t%Y-%m-%d %H:%M")@'
@@ -27,7 +27,7 @@ map <F2> :call TitleDet()<cr>
       normal 'k
       echohl WarningMsg | echo "Successful in updating the copyright." | echohl None
  endfunction
- 
+
  function TitleDet()
      let n=1
      while n < 10
