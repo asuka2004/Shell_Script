@@ -1,7 +1,7 @@
 #!/bin/bash
 # Author      : Kung
 # Build       : 2022-04-13 08:51
-# Version     : V1.0 
+# Version     : V1.0
 # Description : Batch Add/Del VPN User list
 # System      : CentOS 7.6
 
