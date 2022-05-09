@@ -2,10 +2,10 @@
 # Author      : Kung
 # Build       : 2022-04-13 08:51
 # Version     : V1.0 First
-# Description : Batch Add/Del VPN User list           
-# System      : CentOS 7.6 
+# Description : Batch Add/Del VPN User list
+# System      : CentOS 7.6
 
-export PS4='++ ${LINENO}'  
+export PS4='++ ${LINENO}'
 export LANG=C
 export PATH=$PATH
 [ -f /etc/init.d/functions ] && . /etc/init.d/functions
@@ -18,7 +18,7 @@ File_Path=/root/github/vpn.txt
 
 usage(){
 	echo "USAGE: $0 {-add|-del} username"
-} 
+}
 
 if [ $UID -ne 0 ];then
 	echo "You are not supper user,Please use root"
