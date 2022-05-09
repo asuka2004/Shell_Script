@@ -2,10 +2,9 @@
 # Author      : Kung
 # Build       : 2022-04-16 11:41
 # Version     : V1.0
-# Description : Ping IP           
-# System      : CentOS 7.6 
-			       
-export PS4='++ ${LINENO} '  
+# Description : Ping IP
+# System      : CentOS 7.6
+export PS4='++ ${LINENO} '
 export LANG=C
 export PATH=$PATH
 [ -f /etc/init.d/functions ] && . /etc/init.d/functions

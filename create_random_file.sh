@@ -2,10 +2,10 @@
 # Author      : Kung
 # Build       : 2022-04-21 21:00
 # Version     : V1.0
-# Description :            
-# System      : CentOS 7.6 
-			       
-export PS4='++ ${LINENO}'  
+# Description : Random file
+# System      : CentOS 7.6
+
+export PS4='++ ${LINENO}'
 export LANG=C
 export PATH=$PATH
 [ -f /etc/init.d/functions ] && . /etc/init.d/functions
