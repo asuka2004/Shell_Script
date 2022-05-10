@@ -13,7 +13,6 @@ Script_Path=/root/github
 [ ! -d ${Script_Path} ] && mkdir -p ${Script_Path}
 Log_Path=/root/tmp
 [ ! -d ${Log_Path} ] && mkdir -p ${Log_Path}
-
 DBPATH=/root/tmp
 [ ! -d "$DBPATH" ] && mkdir $DBPATH
 MYUSER=Kung
