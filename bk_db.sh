@@ -3,7 +3,7 @@
 # Build       : 2022-04-13 10:52
 # Version     : V1.0
 # Description : Create&Backup&Restore database on MySql5.6             
-# System      : CentOS 7.6 
+# System      : CentOS 7.6
 			       
 export PS4='++ ${LINENO}'  
 export LANG=C
@@ -35,7 +35,7 @@ Backup_db(){
 }
 
 Del_db(){
-	$MYCMD -e "use db2;truncate table employee;"	
+	$MYCMD -e "use db2;truncate table employees;"	
 }
 
 Restore_db(){
