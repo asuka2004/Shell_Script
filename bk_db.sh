@@ -34,7 +34,7 @@ Backup_db(){
 }
 
 Del_db(){
-	$MYCMD -e "use db2;truncate table test;"	
+	$MYCMD -e "use db2;truncate table employee;"	
 }
 
 Restore_db(){
