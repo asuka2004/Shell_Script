@@ -15,8 +15,7 @@ Log_Path=/root/tmp
 [ ! -d ${Log_Path} ] && mkdir -p ${Log_Path}
 DBPATH=/root/tmp
 [ ! -d "$DBPATH" ] && mkdir $DBPATH
-#MYUSER=Kung
-#MYPASS=P@ssw0rd
+
 SOCKET=/var/lib/mysql/mysql.sock
 MYCMD="mysql --login-path=Kung -S $SOCKET"
 MYDUMP="mysqldump --login-path=Kung -S $SOCKET --no-tablespaces --single-transaction"
