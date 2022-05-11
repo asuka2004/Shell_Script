@@ -15,11 +15,11 @@ Log_Path=/root/tmp
 [ ! -d ${Log_Path} ] && mkdir -p ${Log_Path}
 DBPATH=/root/tmp
 [ ! -d "$DBPATH" ] && mkdir $DBPATH
-MYUSER=Kung
-MYPASS=P@ssw0rd
+#MYUSER=Kung
+#MYPASS=P@ssw0rd
 SOCKET=/var/lib/mysql/mysql.sock
-MYCMD="mysql -u$MYUSER -p$MYPASS -S $SOCKET -h localhost"
-MYDUMP="mysqldump -u$MYUSER -p$MYPASS -S $SOCKET -h localhost --no-tablespaces --single-transaction"
+MYCMD="mysql --login-path=Kung -S $SOCKET"
+MYDUMP="mysqldump --login-path=Kung -S $SOCKET --no-tablespaces --single-transaction"
 
 Create_db(){
 	$MYCMD -e "create database db2;use db2;create table test(id int(7) zerofill auto_increment not null,username varchar(20),servnumber varchar(30),password varchar(20),createtime datetime,primary key (id))DEFAULT CHARSET=utf8;source /root/tmp/sql.txt;"
@@ -44,14 +44,12 @@ Restore_db(){
 
 Main(){
 	Create_db
-	echo "Wait 10 second....."
-	sleep 10
+	echo "Create database and table. Please Wait ....."
 	Backup_db
-	echo "Wait 5 second....."
-	sleep 5
+	echo "Backup table. Please wait ........"
 	Del_db	
-	echo "Wait 5 second....."
-	sleep 5
+	echo "Del table.Please wait ........"
 	Restore_db
+	echo "Restore information Please wait....."
 }
 Main
