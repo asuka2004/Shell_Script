@@ -2,8 +2,8 @@
 # Author      : Kung
 # Build       : 2022-04-13 10:52
 # Version     : V1.0
-# Description : Create&Backup&Restore database on MySql5.6             
-# System      : CentOS 7.6
+# Description : Create&Backup&Restore database on MySql5.7             
+# System      : CentOS 7.9
 			       
 export PS4='++ ${LINENO}'  
 export LANG=C
