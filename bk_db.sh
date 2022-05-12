@@ -8,6 +8,7 @@
 export PS4='++ ${LINENO}'  
 export LANG=C
 export PATH=$PATH
+export MYSQL_PWD=${password}
 [ -f /etc/init.d/functions ] && . /etc/init.d/functions
 Script_Path=/root/github
 [ ! -d ${Script_Path} ] && mkdir -p ${Script_Path}
@@ -16,9 +17,9 @@ Log_Path=/root/tmp
 DBPATH=/root/tmp
 [ ! -d "$DBPATH" ] && mkdir $DBPATH
 MYUSER=Kung
-MYPASS=P@ssw0rd
+#MYPASS=
 SOCKET=/var/lib/mysql/mysql.sock
-MYCMD="mysql -u$MYUSER -p$MYPASS -S $SOCKET -h localhost"
+MYCMD="mysql -u$MYUSER -p${password} -S $SOCKET -h localhost"
 MYDUMP="mysqldump -u$MYUSER -p$MYPASS -S $SOCKET -h localhost --no-tablespaces --single-transaction"
 
 Create_db(){
