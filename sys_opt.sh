@@ -2,7 +2,7 @@
 # Author      : Kung
 # Build       : 2022-04-21 21:07
 # Version     : V1.0
-# Description :            
+# Description : Optimization system           
 # System      : CentOS 7.6 
 			       
 export PS4='++ ${LINENO}'  
@@ -89,6 +89,11 @@ function init_ssh(){
 	sed -i 's%#UseDNS yes%UseDNS no%' /etc/ssh/sshd_config
 	/etc/init.d/sshd reload &>/dev/null	
 }
+
+function disable_service(){
+	systemctl list-unit-files | grep enable| egrep -v "sshd.service|cron.service|sysstat|rsyslog|NetworkManager.service|irqbalance.service" |awk '{print "systemctl disable",$1}'
+}
+
 
 main(){
 	init_ssh
