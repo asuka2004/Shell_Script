@@ -128,7 +128,8 @@ function ssh(){
 	sed -i -e "19s/.*/ListenAddress 192.168.88.51/g" /etc/ssh/sshd_config
 	sed -i -e "38s/.*/PermitRootLogin no/g" /etc/ssh/sshd_config
 	sed -i -e "64s/.*/PermitEmptyPasswords no/g" /etc/ssh/sshd_config 
-	sed -o -e "79s/.*/GSSAPIAuthentication no/g" /etc/ssh/sshd_config
+	sed -i -e "79s/.*/GSSAPIAuthentication no/g" /etc/ssh/sshd_config
+	sed -i -e "115s/.*/UseDNS no/g" /etc/ssh/sshd_config
 }
 
 function file(){
@@ -152,7 +153,6 @@ function alias(){
 	echo "alias grep='grep --color=auto'">>/etc/profile
 	source /etc/profile	
 }
-
 
 
 main(){
