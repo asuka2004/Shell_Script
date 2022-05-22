@@ -22,12 +22,12 @@ fi
 
 
 function adduser(){
-	if [ `grep -w asuka /etc/passwd|wc -l` -lt 1 ]
+	if [ `grep -w Kung /etc/passwd|wc -l` -lt 1 ]
 	 then
-		useradd asuka
-		echo 123456| passwd --stdin asuka
+		useradd Kung
+		echo P@ssw0rd| passwd --stdin Kung
 		cp /etc/sudoers /etc/sudoers.ori
-		echo "asuka ALL=(ALL) NOPASSWD:ALL" >>/etc/sudoers
+		echo "Kung ALL=(ALL) NOPASSWD:ALL" >>/etc/sudoers
 		visudo -c &>/dev/null	
 	fi
 }
@@ -94,6 +94,66 @@ function disable_service(){
 	systemctl list-unit-files | grep enable| egrep -v "sshd.service|cron.service|sysstat|rsyslog|NetworkManager.service|irqbalance.service" |awk '{print "systemctl disable",$1}'
 }
 
+function timezone(){
+	cp /etc/locale.conf{,.ori}
+	localectl set-locale LANG=C
+	cat /etc/locale.conf
+}
+
+function correct_time(){
+	ntpdate time.stdtime.gov.tw
+	echo '#cron-id-001:time sync by Kung'>>/var/spool/cron/root
+	echo "*/5 * * * * /usr/sbin/ntpdate time.stdtime.gov.tw > /dev/null 2>&1" >>/var/spool/cron/root
+	crontab -l		
+}
+
+function command(){
+	echo 'export TMOUT=300' >>/etc/profile
+	echo 'export HISTSIZE=5' >> /etc/profile
+	echo 'export HISTFILESIZE=5' >> /etc/profile
+	tail -3 /etc/profile
+	. /etc/profile
+}
+
+function limit(){
+	echo '*		- 	nofile 		65535'>>/etc/security/limits.conf
+	tail -l /etc/security/limits.conf
+	ulimit -SHn 65535
+	ulimit -n
+}
+
+function ssh(){
+	cp /etc/ssh/sshd_config{,.ori}
+	sed -i -e "17s/.*/Port 55555/g" /etc/ssh/sshd_config
+	sed -i -e "19s/.*/ListenAddress 192.168.88.51/g" /etc/ssh/sshd_config
+	sed -i -e "38s/.*/PermitRootLogin no/g" /etc/ssh/sshd_config
+	sed -i -e "64s/.*/PermitEmptyPasswords no/g" /etc/ssh/sshd_config 
+	sed -o -e "79s/.*/GSSAPIAuthentication no/g" /etc/ssh/sshd_config
+}
+
+function file(){
+	chattr +i /etc/passwd /etc/shadow /etc/group
+	chattr +i /etc/inittab /etc/fstab /etc/sudoers
+	lsattr /etc/passwd /etc/shadow /etc/group /etc/inittab /etc/fstab /etc/sudoers
+	mv /usr/bin/chattr /opt/tmp
+	cp /usr/bin/any /usr/bin/chattr
+}
+
+function issue(){
+	cat /dev/null>/etc/issue
+	cat /dev/null>/etc/issue.net
+}
+
+function ping(){
+	echo "net.ipv4.icmp_echo_ignore_all=1">> /etc/sysctl.conf
+}
+
+function alias(){
+	echo "alias grep='grep --color=auto'">>/etc/profile
+	source /etc/profile	
+}
+
+
 
 main(){
 	init_ssh
@@ -103,3 +163,4 @@ main(){
 	charset
 	adduser
 }
+main
