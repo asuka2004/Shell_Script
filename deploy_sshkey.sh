@@ -1,6 +1,6 @@
 #!/bin/bash
 # Author      : Kung
-# Build       : 2022-05-22 16:39
+# Build       : 2022-05-23 19:52
 # Version     : V1.0
 # Description :            
 # System      : CentOS 7.6 
@@ -15,4 +15,12 @@ Log_Path=/root/tmp
 [ ! -d ${Log_Path} ] && mkdir -p ${Log_Path}
 
 
+rm -f ~/.ssh/id_rsa*
+ssh-keygen -f ~/.ssh/id_rsa -P " " >/dev/null 2>&1
+SSH_PASS=
+Key_Path=~/.ssh/id_rsa.pub
+for ip in 100 200
+do
+	sshpass -p$SSH_Pass ssh-copy-id -i $Key_Path "-o StrictHostKeyChecking=no" 192.168.88.$ip
 
+done
