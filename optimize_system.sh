@@ -128,6 +128,16 @@ function ban_ping(){
 }
 
 main(){
-
+	set_timezone
+	sync_time
+	opt_file
+	opt_profile
+	opt_kernel
+	opt_sshd
+	add_user
+	disable_service
+	lock_file
+	clear_issue
+	ban_ping
 }
 main
