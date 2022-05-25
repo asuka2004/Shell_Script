@@ -30,9 +30,9 @@ function sync_time(){
 	cron=/var/spool/cron/root
 	if [ `grep -w "ntpdate" $cron|wc -l` -lt 1 ]
 	 then
-		echo '#time sync by Kung' >>$cron
+		echo '#Sync time by Kung' >>$cron
 		echo '*/5 * * * * /usr/sbin/ntpdate time.stdtime.gov.tw>/dev/null 2>&1' >>$cron
-		crontabl -l 
+		crontab -l 
 	fi
 }
 
@@ -106,16 +106,14 @@ function add_user(){
 
 
 function disable_service(){
-	systemctl list-unit-files | grep enable| egrep -v "sshd.service|cron.service|sysstat|rsyslog|NetworkManager.service|irqbalance.service" |awk '{print "systemctl disable",$1}'
+	systemctl list-unit-files | grep enable| egrep -v "sshd.service|firewalld.service|cron.service|sysstat|rsyslog|NetworkManager.service|irqbalance.service" |awk '{print "systemctl disable",$1}'|bash
 }
 
 
 function lock_file(){
-	chattr +i /etc/passwd /etc/shadow /etc/group
-	chattr +i /etc/inittab /etc/fstab /etc/sudoers
+	chattr +i /etc/passwd /etc/shadow /etc/group /etc/inittab /etc/fstab /etc/sudoers
 	lsattr /etc/passwd /etc/shadow /etc/group /etc/inittab /etc/fstab /etc/sudoers
-	mv /usr/bin/chattr /opt/tmp
-	cp /usr/bin/any /usr/bin/chattr
+	mv /usr/bin/chattr /opt/
 }
 
 function clear_issue(){
