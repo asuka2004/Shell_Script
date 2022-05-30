@@ -2,7 +2,7 @@
 # Author      : Kung
 # Build       : 2022-05-28 19:46
 # Version     : V1.0
-# Description :            
+# Description : Cut Nginx log            
 # System      : CentOS 7.6 
 			       
 export PS4='++ ${LINENO}'  
