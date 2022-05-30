@@ -14,7 +14,6 @@ Script_Path=/root/github
 Log_Path=/root/tmp
 [ ! -d ${Log_Path} ] && mkdir -p ${Log_Path}
 
-
 rm -f ~/.ssh/id_rsa*
 ssh-keygen -f ~/.ssh/id_rsa -P " " >/dev/null 2>&1
 SSH_PASS=
