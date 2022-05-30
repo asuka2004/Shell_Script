@@ -2,7 +2,7 @@
 # Author      : Kung
 # Build       : 2022-05-23 19:52
 # Version     : V1.0
-# Description :            
+# Description : deploy ssh key to another server           
 # System      : CentOS 7.6 
 			       
 export PS4='++ ${LINENO}'  
