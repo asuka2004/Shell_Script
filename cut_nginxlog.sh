@@ -1,8 +1,8 @@
 #!/bin/bash
 # Author      : Kung
-# Build       : 2022-05-23 19:52
+# Build       : 2022-05-28 19:46
 # Version     : V1.0
-# Description : deploy ssh key to another server           
+# Description : Cut Nginx log            
 # System      : CentOS 7.6 
 			       
 export PS4='++ ${LINENO}'  
@@ -14,12 +14,15 @@ Script_Path=/root/github
 Log_Path=/root/tmp
 [ ! -d ${Log_Path} ] && mkdir -p ${Log_Path}
 
-rm -f ~/.ssh/id_rsa*
-ssh-keygen -f ~/.ssh/id_rsa -P " " >/dev/null 2>&1
-SSH_PASS=
-Key_Path=~/.ssh/id_rsa.pub
-for ip in 100 200
-do
-	sshpass -p$SSH_Pass ssh-copy-id -i $Key_Path "-o StrictHostKeyChecking=no" 192.168.88.$ip
+Dateformat=`date +%Y%m%d -d -1day`
+Basedir="/usr/local/nginx"
+Nginxlog="$Basedir/logs"
+Logname="access_www"
 
-done
+[ -d $Nginxlog ] && cd $Nginxlog || exit 1
+[ -f ${Logname}.log ] || exit 1
+mv ${Logname}.log ${DateFormat}_${Logname}.log
+$Basedir/sbin/nginx -s reload
+
+
+
