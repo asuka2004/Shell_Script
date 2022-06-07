@@ -89,7 +89,7 @@ function opt_sshd(){
 	sed -i -e "64s/.*/PermitEmptyPasswords no/g" /etc/ssh/sshd_config 
 	sed -i -e "79s/.*/GSSAPIAuthentication no/g" /etc/ssh/sshd_config
 	sed -i -e "115s/.*/UseDNS no/g" /etc/ssh/sshd_config
-	/etc/init.d/sshd reload &>/dev/null
+	systemctl restart sshd	
 }
 
 
