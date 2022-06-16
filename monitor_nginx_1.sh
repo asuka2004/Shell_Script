@@ -2,7 +2,7 @@
 # Author      : Kung
 # Build       : 2022-04-21 20:59
 # Version     : V1.0
-# Description : Monitor Nginx 18           
+# Description : If Nginx 18 fail,stop keepalive           
 # System      : CentOS 7.6 
 			       
 export PS4='++ ${LINENO}'  
