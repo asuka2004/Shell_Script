@@ -2,7 +2,7 @@
 # Author      : Kung
 # Build       : 2022-04-21 20:59
 # Version     : V1.0
-# Description : If Nginx 18 fail,stop keepalive           
+# Description : Use script to choice           
 # System      : CentOS 7.6 
 			       
 export PS4='++ ${LINENO}'  
