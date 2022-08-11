@@ -38,30 +38,39 @@ do
 	((c++))
 done
 
+#k=0
+for k in ${array[*]}
+do
+	if [ ${#array[$k]} -lt 4 ];then
+		echo "${array[$k]}"
+	fi
+	((k++))
+done
 
 # Test array
 arr=(1 2 3 4 5)
 
-for((a=0;a<${#arr[*]};a++))
+for((d=0;d<${#arr[*]};d++))
 do
-	echo ${arr[a]}
+	echo ${arr[d]}
 done
 
-echo "Wait 3 second..."
-sleep 3
+echo "Wait 5 second..."
+sleep 5
 
-b=0
-for b in ${arr[*]}
+e=0
+for e in ${arr[*]}
 do
-	echo ${arr[b]}
+	echo ${arr[e]}
+	((e++))
 done
 
-echo "Wait 3 second..."
-sleep 3
+echo "Wait 5 second..."
+sleep 5
 
-c=0
-while ((c<${#arr[*]}))
+f=0
+while ((f<${#arr[*]}))
 do
-	echo ${arr[c]}
-	((c++))
+	echo ${arr[f]}
+	((f++))
 done
