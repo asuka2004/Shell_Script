@@ -3,24 +3,24 @@
 # Build       : 2022-05-07 23:42
 # Version     : V1.0
 # Description : Monitor Web file           
-# System      : CentOS 7.6 
+# System      : CentOS 7.9 
 			       
 export PS4='++ ${LINENO}'  
 export LANG=C
 export PATH=$PATH
 [ -f /etc/init.d/functions ] && . /etc/init.d/functions
-Script_Path=/root/github
+Script_Path=/root/project/github
 [ ! -d ${Script_Path} ] && mkdir -p ${Script_Path}
 Log_Path=/root/tmp
 [ ! -d ${Log_Path} ] && mkdir -p ${Log_Path}
 
 RETVAL=0
-CHECK_DIR=/var/www
+CHECK_DIR=/var/www/html
 [ -e $CHECK_DIR ]||exit 1
 
-CONTEXT="/tmp/context.db.ori"
-COUNT="/tmp/count.db.ori"
-ERROR_LOG="/tmp/err.log"
+CONTEXT="/root/tmp/context.db.ori"
+COUNT="/root/tmp/count.db.ori"
+ERROR_LOG="/root/tmp/err.log"
 
 [ -e $COUNT ]|| exit 1
 

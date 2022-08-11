@@ -2,14 +2,14 @@
 # Author      : Kung
 # Build       : 2022-04-13 19:54
 # Version     : V1.0
-# Description : Sum Cal           
-# System      : CentOS 7.6 
+# Description : Cal Sum           
+# System      : CentOS 7.9 
 			       
 export PS4='++ ${LINENO}'  
 export LANG=C
 export PATH=$PATH
 [ -f /etc/init.d/functions ] && . /etc/init.d/functions
-Script_Path=/root/github
+Script_Path=/root/project/github
 [ ! -d ${Script_Path} ] && mkdir -p ${Script_Path}
 Log_Path=/root/tmp
 [ ! -d ${Log_Path} ] && mkdir -p ${Log_Path}

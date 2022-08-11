@@ -3,7 +3,7 @@
 # Build       : 2022-04-20 21:48
 # Version     : V1.0
 # Description : Jump Server           
-# System      : CentOS 7.6 
+# System      : CentOS 7.9 
 			       
 export PS4='++ ${LINENO}'  
 export LANG=C
@@ -28,7 +28,7 @@ main(){
 		2) 192.168.88.27
 		
 end
-		read -p "pls input a num" num
+		read -p "Please input a number:" num
 		case "$num" in
 		1)
 		echo 'login in 192.168.88.26'
@@ -44,4 +44,4 @@ end
 		
 	done
 }
-main
+main $*

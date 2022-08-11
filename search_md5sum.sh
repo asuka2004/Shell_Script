@@ -3,20 +3,20 @@
 # Build       : 2022-04-21 21:05
 # Version     : V1.0
 # Description :            
-# System      : CentOS 7.6 
+# System      : CentOS 7.9 
 			       
 export PS4='++ ${LINENO}'  
 export LANG=C
 export PATH=$PATH
 [ -f /etc/init.d/functions ] && . /etc/init.d/functions
-Script_Path=/root/github
+Script_Path=/root/project/github
 [ ! -d ${Script_Path} ] && mkdir -p ${Script_Path}
 Log_Path=/root/tmp
 [ ! -d ${Log_Path} ] && mkdir -p ${Log_Path}
 
 for n in {0..10}
 do
-	echo "`echo $n|md5sum` $n" >>/root/github/md5sum.log
+	echo "`echo $n|md5sum` $n" >>/root/tmp/md5sum.log
 done
 
 
@@ -27,5 +27,5 @@ do
 	echo $line
 	break
 	fi
-done</root/github/md5sum.log
+done</root/tmp/md5sum.log
 

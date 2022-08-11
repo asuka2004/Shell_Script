@@ -3,13 +3,13 @@
 # Build       : 2022-07-30 22:00
 # Version     : V1.0
 # Description : Choice menu            
-# System      : CentOS 7.6 
+# System      : CentOS 7.9 
 			       
 export PS4='++ ${LINENO}'  
 export LANG=C
 export PATH=$PATH
 [ -f /etc/init.d/functions ] && . /etc/init.d/functions
-Script_Path=/root/github
+Script_Path=/root/project/github
 [ ! -d ${Script_Path} ] && mkdir -p ${Script_Path}
 Log_Path=/root/tmp
 [ ! -d ${Log_Path} ] && mkdir -p ${Log_Path}
@@ -27,7 +27,7 @@ function menu(){
 END
 }
 
-function chose(){
+function choice(){
 	read -p "Please input your choice:" fruit 
 	case "$fruit" in
 	1)
@@ -42,7 +42,7 @@ function chose(){
 }
 function main(){
 	menu
-	chose
+	choice
 }
 main $*
 

@@ -3,13 +3,13 @@
 # Build       : 2022-04-13 20:04
 # Version     : V1.0
 # Description : Monitor Web list           
-# System      : CentOS 7.6 
+# System      : CentOS 7.9 
 			       
 export PS4='++ ${LINENO}'  
 export LANG=C
 export PATH=$PATH
 [ -f /etc/init.d/functions ] && . /etc/init.d/functions
-Script_Path=/root/github
+Script_Path=/root/project/github
 [ ! -d ${Script_Path} ] && mkdir -p ${Script_Path}
 Log_Path=/root/tmp
 [ ! -d ${Log_Path} ] && mkdir -p ${Log_Path}
@@ -44,4 +44,4 @@ function main(){
 		sleep 5  
 	done
 }
-main 
+main $* 
