@@ -20,7 +20,7 @@ if [ $# -ne 1 ]
 	exit 1
 fi
 
-if [ "$1" = "Start" ]
+if [ "$1" = "start" ]
  then
 	systemctl start rsyncd
 	sleep 2
@@ -29,7 +29,7 @@ if [ "$1" = "Start" ]
 		echo "Rsync started"
 		exit 0
 	fi
-elif [ "$1" = "Stop" ]
+elif [ "$1" = "stop" ]
  then
 	systemctl stop rsyncd 
 	sleep 2
@@ -39,7 +39,7 @@ elif [ "$1" = "Stop" ]
 		exit 0
 	fi
 
-elif [ "$1" = "$Restart" ]
+elif [ "$1" = "Restart" ]
  then
 	systemctl stop rsyncd	
 	sleep 1
