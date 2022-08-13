@@ -17,27 +17,27 @@ Log_Path=/root/tmp
 
 arr=(1 2 3 4 5)
 
-for((d=0;d<${#arr[*]};d++))
+for((a=0;a<${#arr[*]};a++))
 do
-	echo ${arr[d]}
+	echo ${arr[a]}
 done
 
 echo "Wait 5 second..."
 sleep 5
 
-e=0
-for e in ${arr[*]}
+b=0
+for b in ${arr[*]}
 do
-	echo $e
-	((e++))
+	echo $b
+	((b++))
 done
 
 echo "Wait 5 second..."
 sleep 5
 
-f=0
-while ((f<${#arr[*]}))
+c=0
+while ((c<${#arr[*]}))
 do
-	echo ${arr[f]}
-	((f++))
+	echo ${arr[c]}
+	((c++))
 done
