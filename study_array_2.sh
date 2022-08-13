@@ -14,40 +14,7 @@ Script_Path=/root/project/github
 Log_Path=/root/tmp
 [ ! -d ${Log_Path} ] && mkdir -p ${Log_Path}
 
-# Test lengh less than 4 
-array=( I am Tony Kung not William Gilson )
 
-for ((a=0;a<${#array[*]};a++))
-do
- 	if [ ${#array[$a]} -lt 4 ]
-	 then
-		echo "${array[$a]}"
- 	fi
-done
-			       
-echo "Wait 3 second..."
-sleep 3
-
-c=0
-while ((c<${#array[*]})) 
-do
-	if [ ${#array[$c]} -lt 4 ]
-	 then
-		echo "${array[$c]}"
-	fi
-	((c++))
-done
-
-#k=0
-for k in ${array[*]}
-do
-	if [ ${#array[$k]} -lt 4 ];then
-		echo "${array[$k]}"
-	fi
-	((k++))
-done
-
-# Test array
 arr=(1 2 3 4 5)
 
 for((d=0;d<${#arr[*]};d++))
