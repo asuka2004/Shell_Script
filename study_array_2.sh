@@ -28,7 +28,7 @@ sleep 5
 e=0
 for e in ${arr[*]}
 do
-	echo ${arr[e]}
+	echo $e
 	((e++))
 done
 
