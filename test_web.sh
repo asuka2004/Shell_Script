@@ -25,9 +25,9 @@ while true
 do
 	if [ `curl -o /dev/null --connect-timeout 5 -s -w "%{http_code}" $1| egrep -w "200|301|302"|wc -l` -ne 1 ]
 	 then
-		action "Web $1 fail" /bin/false
+		action "$1 fail" /bin/false
 	else
-		action "Web $1 is OK" /bin/true
+		action "$1 is normal" /bin/true
 	fi
 	sleep 5
 done
