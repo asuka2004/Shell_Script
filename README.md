@@ -1,1 +1,1 @@
-# Script 練習範本
+* Shell Script練習範本
