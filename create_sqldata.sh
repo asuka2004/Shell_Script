@@ -18,11 +18,11 @@ echo "Please input server number:"
 read server
 echo "Please input sql number:"
 read number
-# char=`head /dev/urandom | tr -dc 0-9 | head -c 11`
+
 for (( i=0;i<$number;i++ ))
 do
 pass=`head /dev/urandom | tr -dc a-z | head -c 8`
 let server=server+1
 echo "insert into test(id,username,servnumber,password,createtime)
-values('$i','user${i}','${serber}','$pass',now());" >>/root/tmp/sql.txt
+values('$i','user${i}','${server}','$pass',now());" >>/root/tmp/sql.txt
 done
