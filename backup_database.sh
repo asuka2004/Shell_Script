@@ -8,7 +8,7 @@
 export PS4='++ ${LINENO}'  
 export LANG=C
 export PATH=$PATH
-export MYSQL_PWD=${password}
+#export MYSQL_PWD=${password}
 [ -f /etc/init.d/functions ] && . /etc/init.d/functions
 Script_Path=/root/project/github
 [ ! -d ${Script_Path} ] && mkdir -p ${Script_Path}
@@ -43,13 +43,47 @@ Restore_db(){
 }
 
 Main(){
-	Create_db
 	echo "Create database and table. Please Wait ....."
-	Backup_db
+	Create_db
+	if [ $? -eq 0 ]
+	 then
+			action "Success to create db" /bin/true
+	else
+			action "Fail to create db and exit the script" /bin/false
+			exit 2
+	fi
+	
 	echo "Backup table. Please wait ........"
-	Del_db	
+	Backup_db
+	
+	if [ $? -eq 0 ]
+	 then
+			action "Backup  db" /bin/true
+	else
+			action "Fail to bk db and exit the script" /bin/false
+			exit 2
+	fi
+
 	echo "Del table.Please wait ........"
-	Restore_db
+	Del_db	
+	
+	if [ $? -eq 0 ]
+	 then
+			action "delete  db" /bin/true
+	else
+			action "Fail to delete db and exit the script" /bin/false
+			exit 2
+	fi
+
 	echo "Restore information Please wait....."
+	Restore_db
+	if [ $? -eq 0 ]
+	 then
+			action "restore  db" /bin/true
+	else
+			action "Fail to restore db and exit the script" /bin/false
+			exit 2
+	fi
+
 }
 Main $*
