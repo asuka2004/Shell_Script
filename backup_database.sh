@@ -72,7 +72,7 @@ Main(){
 			action "delete  db" /bin/true
 	else
 			action "Fail to delete db and exit the script" /bin/false
-			exit 2
+			exit 3
 	fi
 
 	echo "Restore information Please wait....."
@@ -82,7 +82,7 @@ Main(){
 			action "restore  db" /bin/true
 	else
 			action "Fail to restore db and exit the script" /bin/false
-			exit 2
+			exit 4
 	fi
 
 }
