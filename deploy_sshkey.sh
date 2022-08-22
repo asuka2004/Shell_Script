@@ -21,6 +21,6 @@ SSH_PASS=
 Key_Path=~/.ssh/id_rsa.pub
 for ip in 100 200
 do
-	sshpass -p$SSH_Pass ssh-copy-id -i $Key_Path "-o StrictHostKeyChecking=no" 192.168.88.$ip
+	sshpass -p$SSH_PASS ssh-copy-id -i $Key_Path "-o StrictHostKeyChecking=no" 192.168.88.$ip
 
 done
