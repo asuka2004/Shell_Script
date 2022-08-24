@@ -98,8 +98,8 @@ function add_user(){
 	if [ `grep -w Kung /etc/passwd|wc -l` -lt 1 ]
 	 then
 		useradd Kung
-		echo P@ssw0rd| passwd --stdin Kung
-		chage -d 0 Kung	
+		read -p "Please input password:" Pwd
+		echo $Pwd| passwd --stdin Kung
 		cp /etc/sudoers /etc/sudoers.ori
 		echo "Kung ALL=(ALL) NOPASSWD:ALL" >>/etc/sudoers
 		visudo -c &>/dev/null	
