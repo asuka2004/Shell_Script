@@ -20,6 +20,11 @@ if [ "$UID" != "0" ]
 	exit 1
 fi
 
+function set_hostname(){
+	IP=`ifconfig eth0 |awk -F '[ :]+' 'NR==2 {print $3}'|awk -F '[ .]+' 'NR==1 {print $4}'`	
+	hostnamectl set-hostname Test-$IP 
+}
+
 function set_timezone(){
 	cp /etc/locale.conf /etc/locale.conf.`date +"%Y-%m-%d"`
 	localectl set-locale LANG=C
@@ -127,7 +132,30 @@ function ban_ping(){
 	echo "net.ipv4.icmp_echo_ignore_all=1">> /etc/sysctl.conf
 }
 
+function update_sys(){
+	yum install net-tools -y
+	yum update -y
+        if [ $? -eq 0 ]
+         then
+		 action "Success to update" /bin/true
+        else
+                 action "Fail to update" /bin/false
+	fi
+	
+	echo "Warning!!  Will to reboot"
+	reboot 
+}
+
 main(){
+	
+	set_hostname
+        if [ $? -eq 0 ]
+         then
+		 action "Success to setup hostname" /bin/true
+        else
+                 action "Fail to setup hostname" /bin/false
+	fi
+
 	set_timezone
         if [ $? -eq 0 ]
          then
@@ -183,7 +211,6 @@ main(){
         else
                  action "Fail to add" /bin/false
 	fi
-	
 
         disable_service
         if [ $? -eq 0 ]
@@ -192,7 +219,7 @@ main(){
         else
                  action "Fail to disable" /bin/false
 	fi
-        
+
 	lock_file
         if [ $? -eq 0 ]
          then
@@ -216,5 +243,7 @@ main(){
         else
                  action "Fail to ban " /bin/false
 	fi
+	
+	update_sys
 }
 main
