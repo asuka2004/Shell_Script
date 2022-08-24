@@ -82,9 +82,10 @@ EOF
 }
 
 function opt_sshd(){
+	IP=`ifconfig eth0 |awk -F '[ :]+' 'NR==2 {print $3}'`	
 	cp /etc/ssh/sshd_config /etc/ssh/sshd_config.`date +"%Y-%m-%d"`
 	sed -i -e "17s/.*/Port 55555/g" /etc/ssh/sshd_config
-	sed -i -e "19s/.*/ListenAddress 192.168.88.51/g" /etc/ssh/sshd_config
+	sed -i -e "19s/.*/ListenAddress $IP/g" /etc/ssh/sshd_config
 	sed -i -e "38s/.*/PermitRootLogin no/g" /etc/ssh/sshd_config
 	sed -i -e "64s/.*/PermitEmptyPasswords no/g" /etc/ssh/sshd_config 
 	sed -i -e "79s/.*/GSSAPIAuthentication no/g" /etc/ssh/sshd_config
@@ -98,6 +99,7 @@ function add_user(){
 	 then
 		useradd Kung
 		echo P@ssw0rd| passwd --stdin Kung
+		chage -d 0 Kung	
 		cp /etc/sudoers /etc/sudoers.ori
 		echo "Kung ALL=(ALL) NOPASSWD:ALL" >>/etc/sudoers
 		visudo -c &>/dev/null	
@@ -127,15 +129,92 @@ function ban_ping(){
 
 main(){
 	set_timezone
+        if [ $? -eq 0 ]
+         then
+		 action "Success to setup timezone" /bin/true
+        else
+                 action "Fail to setup timezone" /bin/false
+	fi
+	
 	sync_time
+        if [ $? -eq 0 ]
+         then
+		 action "Success to sync time" /bin/true
+        else
+                 action "Fail to sync time" /bin/false
+	fi
+
 	opt_file
+        if [ $? -eq 0 ]
+         then
+		 action "Success to opt file" /bin/true
+        else
+                 action "Fail to opt file" /bin/false
+	fi
+	
 	opt_profile
+        if [ $? -eq 0 ]
+         then
+		 action "Success to opt profile" /bin/true
+        else
+                 action "Fail to opt profile" /bin/false
+	fi
+
 	opt_kernel
+        if [ $? -eq 0 ]
+         then
+		 action "Success to opt kernel" /bin/true
+        else
+                 action "Fail to opt kernel" /bin/false
+	fi
+	
 	opt_sshd
+        if [ $? -eq 0 ]
+         then
+		 action "Success to opt ssh" /bin/true
+        else
+                 action "Fail to opt ssh" /bin/false
+	fi
+	
 	add_user
-	disable_service
+        if [ $? -eq 0 ]
+         then
+		 action "Success to add" /bin/true
+        else
+                 action "Fail to add" /bin/false
+	fi
+	
+
+        disable_service
+        if [ $? -eq 0 ]
+         then
+		 action "Success to disable" /bin/true
+        else
+                 action "Fail to disable" /bin/false
+	fi
+        
 	lock_file
+        if [ $? -eq 0 ]
+         then
+		 action "Success to lock file" /bin/true
+        else
+                 action "Fail to lock file" /bin/false
+	fi
+        
 	clear_issue
+        if [ $? -eq 0 ]
+         then
+		 action "Success to clear" /bin/true
+        else
+                 action "Fail to clear" /bin/false
+	fi
+        
 	ban_ping
+        if [ $? -eq 0 ]
+         then
+		 action "Success to ban" /bin/true
+        else
+                 action "Fail to ban " /bin/false
+	fi
 }
 main
