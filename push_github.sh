@@ -14,8 +14,7 @@ Script_Path=/root/project/github
 Log_Path=/root/tmp
 [ ! -d ${Log_Path} ] && mkdir -p ${Log_Path}
 
-script_path=/root/github
-log_path=/root/tmp
-	git add --all 
-	git commit -m $(date +%Y-%m-%d-%R)
-	git push -u origin master
+	git add --all
+	read -p "Pleaes input reason:" $reason 
+	git commit -m $reason
+	git push origin master

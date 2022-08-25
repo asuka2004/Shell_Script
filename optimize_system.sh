@@ -133,7 +133,7 @@ function ban_ping(){
 }
 
 function update_sys(){
-	yum install net-tools -y
+	yum install net-tools wget -y
 	yum update -y
         if [ $? -eq 0 ]
          then
