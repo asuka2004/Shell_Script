@@ -14,7 +14,6 @@ Script_Path=/root/project/github
 Log_Path=/root/tmp
 [ ! -d ${Log_Path} ] && mkdir -p ${Log_Path}
 
-
 if [ $# -ne 1 ]
  then
 	echo $"Usage $0 Url"
