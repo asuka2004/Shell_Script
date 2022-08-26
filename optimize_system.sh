@@ -20,12 +20,17 @@ if [ "$UID" != "0" ]
 	exit 1
 fi
 
+function install_soft(){
+	yum install net-tools wget vim-enhanced ntpdate -y
+	yum update -y
+}
+
 function set_hostname(){
 	IP=`ifconfig eth0 |awk -F '[ :]+' 'NR==2 {print $3}'|awk -F '[ .]+' 'NR==1 {print $4}'`	
 	hostnamectl set-hostname Test-$IP 
 }
 
-function set_timezone(){
+function set_language(){
 	cp /etc/locale.conf /etc/locale.conf.`date +"%Y-%m-%d"`
 	localectl set-locale LANG=C
 	cat  /etc/locale.conf
@@ -132,22 +137,17 @@ function ban_ping(){
 	echo "net.ipv4.icmp_echo_ignore_all=1">> /etc/sysctl.conf
 }
 
-function update_sys(){
-	yum install net-tools wget -y
-	yum update -y
-        if [ $? -eq 0 ]
-         then
-		 action "Success to update" /bin/true
-        else
-                 action "Fail to update" /bin/false
-	fi
-	
-	echo "Warning!!  Will to reboot"
-	reboot 
-}
 
 main(){
 	
+	install_soft
+        if [ $? -eq 0 ]
+         then
+		 action "Success to install " /bin/true
+        else
+                 action "Fail to install " /bin/false
+	fi
+
 	set_hostname
         if [ $? -eq 0 ]
          then
@@ -156,7 +156,7 @@ main(){
                  action "Fail to setup hostname" /bin/false
 	fi
 
-	set_timezone
+	set_language
         if [ $? -eq 0 ]
          then
 		 action "Success to setup timezone" /bin/true
@@ -244,6 +244,8 @@ main(){
                  action "Fail to ban " /bin/false
 	fi
 	
-	update_sys
+	echo "Warning !!!  Reboot soon "
+	sleep 5
+	reboot	
 }
 main
