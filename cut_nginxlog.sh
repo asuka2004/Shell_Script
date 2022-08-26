@@ -14,7 +14,6 @@ Script_Path=/root/project/github
 Log_Path=/root/tmp
 [ ! -d ${Log_Path} ] && mkdir -p ${Log_Path}
 
-
 DataFormat=`date +%Y%m%d -d -1day`
 Basedir="/usr/local/nginx"
 Nginxlog="$Basedir/logs"
